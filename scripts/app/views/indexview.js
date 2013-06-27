@@ -24,7 +24,12 @@ define(['app/collections/sg'],function(SgCollection){
 	         	if(current*2 > height && that.sg.readyForMore){
 	         		that.sg.fetchMore();
 	         	}
-	        });			
+	        });		
+			$("body").swipe({
+			  swipe:function(event, direction, distance, duration, fingerCount) {
+				console.log("You swiped " + direction );
+			  }
+			});
 
 		},
 
