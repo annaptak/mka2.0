@@ -8,10 +8,18 @@ requirejs.config({
 	    Underscore: '/scripts/underscore',
 	    Backbone: '/scripts//backbone',
 	    JSONPLoader: '/scripts/JSONPLoader',
-	    queryOnet: '/scripts/queryOnet'
+	    queryOnet: '/scripts/queryOnet',
+	    CryptoJS: '/scripts/utils/md5',
+	    StrBuf: '/scripts/utils/buffer',
+	    Base64: '/scripts/utils/base64',
+	    resizeImg: '/scripts/utils/resizeImg'
 	  },	
 		shim: {
-			'Backbone': ['Underscore','sidr','wipetouch','iscroll','Menu','JSONPLoader','queryOnet'],
+			'Backbone': [
+				'Underscore','sidr','wipetouch','iscroll',
+				'Menu','JSONPLoader','queryOnet', 'CryptoJS',
+				'StrBuf', 'Base64', 'resizeImg'
+			],
 			'm': ['Backbone']
 		}
 });
