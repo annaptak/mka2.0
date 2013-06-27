@@ -15,9 +15,11 @@ define(['app/collections/sg'],function(SgCollection){
 		render: function(){
 			this.$el.html(this.template());
 			$('#wrapper').html(this.$el);
+
 			this.sg = new SgCollection;
 			this.sg.readyForMore = true;
 			this.sg.fetch();
+			xx = this.sg;
 			var that = this;
 	       	$(window).bind('scroll', function (){
 	            var current = $('body').scrollTop();
@@ -35,13 +37,17 @@ define(['app/collections/sg'],function(SgCollection){
 		categoryOnClick: function(ev){
 			var categoryEl = $(ev.target);
 			var disabledClass = 'disabledCategory';
-
+			var topic = ev.target.innerHTML;
 			var userCategories = JSON.parse(localStorage.getItem('mUserCategories'));
-
+			var topicToRemove = null;
 			if(userCategories === null){
 				userCategories = ["Moto", "Wiadomości", "Sport", "Biznes", "Wiedza i świat", "Gadżety", "Rozrywka", "Styl życia"];
+			}else{
+				if(userCategories.indexOf(topic) !==  -1){
+					topicToRemove = topic;
+				}
 			}
-
+			var p = userCategories.length;
 			if(categoryEl.hasClass(disabledClass)){
 				categoryEl.removeClass(disabledClass);
 				userCategories.push(categoryEl.attr('category'));
@@ -56,8 +62,18 @@ define(['app/collections/sg'],function(SgCollection){
 				}
 				userCategories = tmpCategories
 			}
-
+			var n = userCategories.length;
+			console.log(p);
+			console.log(n);
+			console.log(topicToRemove);
 			localStorage.setItem('mUserCategories', JSON.stringify(userCategories));
+			if(topicToRemove){
+				this.sg.removeELements(topicToRemove);
+			}else{
+				this.sg.removeAllNews();
+				this.sg.fetch();
+			}
+
 		}
 	});
 	return IndexView;
