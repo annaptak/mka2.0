@@ -2,8 +2,8 @@ define([],function(){
 	var SgDetail = Backbone.View.extend({
 		tagName: 'div',
 		events:{
-			'click div': 'showDetail',
-			'click img': 'showDetail'
+			//'click div': 'showDetail',
+			//'click img': 'showDetail'
 		},
 		template: _.template($('#sgDetail').html()),
 		initialize: function(){
