@@ -71,7 +71,7 @@ var queryOnet = {
         });
     },
 
-    getRecommendedBox: function(_callback) {
+    getRecommendedBox: function(_detId, _servicePath, _callback) {
     	var loader = new JSONPLoader();
 			loader.appId = "jsonp.mobile.onetapi.pl";
 			var url="search.newslist.mobile.onetapi.pl";
@@ -103,17 +103,17 @@ var queryOnet = {
 			// odkomentować dla dev i testów (ewentualnie zaktualizowac id)
 			// RecommendedBox.detailId = '302afcde-70e7-47d3-8fb5-38912805cad2';
 			// RecommendedBox.servicePath = 'styl-zycia.kobieta';
-			RecommendedBox = {};
-			RecommendedBox.detailId = '94bbb95e-6a94-432e-add1-f41a87ec5ccc';
-			RecommendedBox.servicePath = 'gadzety.gry';			
+			//RecommendedBox = {};
+			//RecommendedBox.detailId = '94bbb95e-6a94-432e-add1-f41a87ec5ccc';
+			//RecommendedBox.servicePath = 'gadzety.gry';			
 			var params = {
 				'objectType': 'MobileNewsListElement',
-				'id': RecommendedBox.detailId,
+				'id': _detId,
 				'offset': 0,
-				'limit': 30,
+				'limit': 6,
 				//'serviceName': 'mobile',
 				'solrOldUrl': false,
-				'servicePath': RecommendedBox.servicePath+'*',
+				'servicePath': _servicePath + '*',
 				'qf': 'topics^50',
 				'fl': 'title lead topics'
 			};
