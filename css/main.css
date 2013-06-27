@@ -104,6 +104,16 @@ body{
 	width: 100%;
 }
 
+.newsTile .delete {
+	background-image: url('../img/delete.png');
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	top: -10px;
+	right:-10px;
+}
+
+
 .newsTile .newsTitle {
 	width: 100%;
 	font-family: "Times New Roman","Times",serif;
@@ -226,13 +236,21 @@ body{
 	padding: 10px 0px;
 	font-size: 20px;
   }
+
+  .menuTile{
+	  	display: none;
+	 }
+
+	 #menuBtn{
+	 	display:block;
+	 }
 }
 
 /* SINGLE COL */
 
 @media (max-width: 400px){
 	.content, #header {
-	  	margin: 0px 5px;
+	  	margin: 0px 10px;
 	}
 
 	.newsTile{

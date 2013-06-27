@@ -46,6 +46,7 @@ define(['app/models/sgdetail','app/views/sgdetail','app/views/sglead'],function(
 						element.set({
 							id: id
 						});
+						//console.log(element.get('image'));
 						var view = new SgDetailView({model: element});
 					}else{
 						first = true;
