@@ -1,6 +1,6 @@
 define([],function(){
 	var SgDetail = Backbone.View.extend({
-		tagName: 'li',
+		tagName: 'div',
 		events:{
 			
 		},
