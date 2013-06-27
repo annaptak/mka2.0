@@ -16,7 +16,7 @@ body{
 
 @font-face{
 		font-family:"UniversLTW02-59UltraCn";
-		src:url("fonts/big_noodle_titling.ttf") format("truetype");
+		src:url("fonts/tt/steelfish_rg.ttf") format("truetype");
 		font-style:normal;
 		font-weight:normal
 	}
@@ -44,7 +44,7 @@ body{
 	background-color: rgba(25,25,25,0.5);
 	font-family: "Times New Roman","Times",serif;
 	font-size: 40px;
-	font-size: 4.0rem;
+	font-size: 3.0rem;
 	font-style: italic;
 	text-transform: uppercase;
 	line-height: 1;
@@ -61,8 +61,9 @@ body{
 	color: white;
 	font-family:UniversLTW02-59UltraCn;
 	margin: 10px 5px 10px 0px;
-	padding: 10px 5px 10px 5px;
+	padding: 0px 10px 10px 10px;
 	font-size: 22px;
+	text-transform: uppercase;
 
 }
 
@@ -96,22 +97,56 @@ body{
 	float:left;
 }
 
-.newsTile .label{
+ .label{
 	display:inline-block;
 	background-color: red;
 	color: white;
 	font-family:UniversLTW02-59UltraCn;
 	margin: 0px;
-	padding: 3px 7px 3px 7px;
+	padding: 0px 7px 8px 7px;
 	font-size: 15px;
 	top:50px;
 	right:0px;
 	position:absolute;
+	text-transform: uppercase;
 }
 
 .placeholder{
 	padding:0;
 }
+
+.wiadomosci{
+	background-color: #88c232;
+}
+
+.sport{
+	background-color: #608277;
+}
+
+.rozrywka{
+	background-color: #644c69;
+}
+
+.stylZycia{
+	background-color: #20abba;
+}
+
+.wiedza{
+	background-color: #bd2d4a;
+}
+
+.biznes{
+	background-color: #fc9c00;
+}
+
+.moto{
+	background-color: #10912a;
+}
+
+.technologie {
+	background-color: #e81c23;
+}
+
 @media (max-width: 800px){
 	.content {
 	 	margin: 0px 30px;
