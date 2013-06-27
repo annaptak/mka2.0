@@ -40,3 +40,39 @@ p.articleFirst:first-letter{
 	padding:6px 20px 0 0;
 	text-transform:uppercase
 }
+aside.moreArticles{
+	width:100%;
+	background-color: gray;
+	margin-top: 3em;
+	clear:both;
+}
+.mainText{
+	margin: 0px 70px;
+}
+
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) { 
+
+
+}
+
+@media only screen 
+and (min-width : 768px) { 
+	aside.moreArticles{
+		width: 30%;
+		background-color: gray;
+		margin-top: 3em;
+		float: right;
+		clear: none;
+	}
+	p.articleFirst, p.article{
+
+	}
+	.mainText{
+		width:60%;
+		margin-right:0px;
+		float:left;
+	}
+}
