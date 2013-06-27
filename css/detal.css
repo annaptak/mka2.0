@@ -1,0 +1,40 @@
+.mainImage {
+	width:100%;
+}
+.titleOverlay {
+	width:100%;
+	position:absolute;
+	bottom:0px;
+	background-color: white;
+	height: 4em;
+	opacity:0.4;
+	filter:alpha(opacity=40);
+}
+h1.title{
+	font-family: Time New Roman;
+	font-size: 2em;
+	font-style: italic;
+	position:absolute;
+	bottom:0px;
+	display:block;
+	margin: 0px 20px 14px 20px;
+}
+.detailTop{
+	width:100%;
+	position:relative;
+	overflow:hidden;
+}
+p.articleFirst, p.article{
+	font-family: Georgia;
+	font-size:1.2em;
+	line-height:1.5em;
+	margin-top: 2em;
+}
+p.articleFirst:first-letter{
+	font-size: 4em;
+	font-style: italic;
+	float:left;
+	line-height:1em;
+	padding:6px 20px 0 0;
+	text-transform:uppercase
+}
