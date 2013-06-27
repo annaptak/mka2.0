@@ -40,7 +40,7 @@ var queryOnet = {
         	if(e){
         		_callback("error", null);
         	}else{
-        		//console.log(result.elements);
+        		console.log(result.elements);
         		_callback(null, result.elements);
         	}
         });		
