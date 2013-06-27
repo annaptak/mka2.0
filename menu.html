@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Your stuff -->
+
+        <!-- Include Sidr bundled CSS theme -->
+        <link rel="stylesheet" href="css/menu/jquery.sidr.light.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <a id="simple-menu" href="#sidr">Toogle menu</a>
+
+        <div id="sidr">
+            <!-- Your content -->
+            <ul>
+                <li><a href="#">List 1</a></li>
+                <li class="active"><a href="#">List 2</a></li>
+                <li><a href="#">List 3</a></li>
+            </ul>
+        </div>
+
+        <script>
+            $(document).ready(function() {
+                $('#simple-menu').sidr();
+            });
+        </script>
+
+        <script src="scripts/jquery-2.0.2.min"></script>
+        <script src="scripts/menu/jquery.sidr.min.js"></script>
+    </body>
+</html>
