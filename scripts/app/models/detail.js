@@ -13,6 +13,12 @@ define(['app/views/detail'], function(DetailView){
 					that.render();
 				}
 			});
+
+			queryOnet.getRecommendedBox(function(err, result) {
+				if (err === null) {
+					console.log(result);
+				}
+			});
 		},
 		
 		render: function(_result) {
