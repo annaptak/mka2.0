@@ -2,6 +2,9 @@ define(['app/collections/sg'],function(SgCollection){
 	var IndexView = Backbone.View.extend({
 		tagName: 'div',
 		events:{
+			//'click div': 'swipeMethod',
+			'swiperight div': 'swipeMethod2'
+			
 			//'click div': 'showDetail',
 			//'click img': 'showDetail'
 		},
@@ -13,9 +16,15 @@ define(['app/collections/sg'],function(SgCollection){
 		},
 		render: function(){
 			this.$el.html(this.template());
+			console.log(this.$el,'XXXXXXXXXXXXXXX');
+
 			$('#wrapper').html(this.$el);
 			var sg = new SgCollection;
 			sg.fetch();
+		},
+		
+		swipeMethod2: function(){
+			alert('swipe2');
 		},
 
 		showDetail: function(){

@@ -1,13 +1,14 @@
 requirejs.config({
 	  paths: {
-	    jQuery: '/scripts/jquery-2.0.2.min',
-	    Underscore: '/scripts/underscore',
-	    Backbone: '/scripts//backbone',
-	    JSONPLoader: '/scripts/JSONPLoader',
-	    queryOnet: '/scripts/queryOnet'
+	    jQuery: './jquery-2.0.2.min',
+		Hammer: './jquery.hammer',
+	    Underscore: './underscore',
+	    Backbone: './/backbone',
+	    JSONPLoader: './JSONPLoader',
+	    queryOnet: './queryOnet'
 	  },	
 		shim: {
-			'Backbone': ['Underscore', 'jQuery','JSONPLoader','queryOnet'],
+			'Backbone': ['Underscore', 'jQuery', 'Hammer','JSONPLoader','queryOnet'],
 			'm': ['Backbone']
 		}
 });
