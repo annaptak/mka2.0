@@ -3,6 +3,7 @@ define(['app/collections/sg'],function(SgCollection){
 		tagName: 'div',
 		events:{
 			'touchstart #sg': 'onScroll',
+			'click .menuTile': 'categoryOnClick'
 			//'click img': 'showDetail'
 		},
 		template: _.template($('#index').html()),
@@ -35,6 +36,33 @@ define(['app/collections/sg'],function(SgCollection){
 
 		onScroll: function(){
 			console.log("click");
+		},
+		categoryOnClick: function(ev){
+			var categoryEl = $(ev.target);
+			var disabledClass = 'disabledCategory';
+
+			var userCategories = JSON.parse(localStorage.getItem('mUserCategories'));
+
+			if(userCategories === null){
+				userCategories = ["Moto", "Wiadomości", "Sport", "Biznes", "Wiedza i świat", "Gadżety", "Rozrywka", "Styl życia"];
+			}
+
+			if(categoryEl.hasClass(disabledClass)){
+				categoryEl.removeClass(disabledClass);
+				userCategories.push(categoryEl.attr('category'));
+			} else {
+				categoryEl.addClass(disabledClass);
+				var tmpCategories = [];
+				for(var i=0; i<userCategories.length;i++){
+					if(categoryEl.attr('category') != userCategories[i]){
+						tmpCategories.push(userCategories[i]);
+					}
+					
+				}
+				userCategories = tmpCategories
+			}
+
+			localStorage.setItem('mUserCategories', JSON.stringify(userCategories));
 		}
 	});
 	return IndexView;

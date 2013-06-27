@@ -25,6 +25,12 @@ var Menu = {
                     });
                 }
             });
+//            $('#menuBtn').attr('onclick', 'alert("dupa")');
+////            console.log();
+//            $('#menuBtn').click(function() {
+//                alert('test');
+////                
+//            });
         });
     },
     toggle: function() {

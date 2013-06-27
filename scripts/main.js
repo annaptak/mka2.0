@@ -1,14 +1,18 @@
 requirejs.config({
 	  paths: {
-	    jQuery: './jquery-2.0.2.min',
+//	    jQuery: 'jquery',
+	    sidr: '/scripts/menu/jquery.sidr.min',
+	    wipetouch: '/scripts/menu/jquery.wipetouch',
+	    iscroll: '/scripts/iscroll',
+	    Menu: '/scripts/menu/Menu',
 		Swipe: './jquery.swipe',
-	    Underscore: './underscore',
-	    Backbone: './/backbone',
-	    JSONPLoader: './JSONPLoader',
-	    queryOnet: './queryOnet'
+	    Underscore: '/scripts/underscore',
+	    Backbone: '/scripts//backbone',
+	    JSONPLoader: '/scripts/JSONPLoader',
+	    queryOnet: '/scripts/queryOnet'
 	  },	
 		shim: {
-			'Backbone': ['Underscore', 'jQuery', 'Swipe','JSONPLoader','queryOnet'],
+			'Backbone': ['Underscore','sidr', 'Swipe', 'wipetouch','iscroll','Menu','JSONPLoader','queryOnet'],
 			'm': ['Backbone']
 		}
 });

@@ -1,4 +1,4 @@
-define(['app/views/detail'], function(DetailView){
+define(['app/views/detail', 'app/views/recommendedlist'], function(DetailView, RecommendedListView){
 	var Detail = Backbone.Model.extend({
 
 		fetch: function(_id) {
@@ -9,14 +9,26 @@ define(['app/views/detail'], function(DetailView){
 			queryOnet.getNewsDetail(id, function(err, result) {
 				if (err === null) {
 					console.log(result);
-					that.set(result);
+					that.set({'news': result});
 					that.render();
+
+					queryOnet.getRecommendedBox(_id, result.meta.rel.canonical.path, function(errRec, resultRec) {
+						if (errRec === null) {
+							that.set({'rec': resultRec});
+							console.log(resultRec);
+							that.renderRecommendedList();
+						}
+					});
 				}
 			});
 		},
 		
 		render: function(_result) {
 			var view = new DetailView({model: this});
+		},
+
+		renderRecommendedList: function() {
+			var view = new RecommendedListView({model: this});
 		}
 	});
 

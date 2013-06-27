@@ -1,31 +1,61 @@
 <!Doctype HTML>
 <html>
 <head>
-	<script data-main="scripts/main" src="scripts/require.js"></script>
-	<link rel="stylesheet" href="css/main.css"></link>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="application-name" content="Onet.pl"/> 
-    <link rel="stylesheet" href="css/main.css"></link>
+    <meta name="msapplication-TileColor" content="#ffffff"/> 
+    <meta name="msapplication-TileImage" content="http://ocdn.eu/images/pulscms/ZmQ7MDA_/a3999790d747fc0b5b0b499285bb62d1.png"/>
     <meta name="HandheldFriendly" content="true" />
+    
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/detal.css">
+
+    <link rel="stylesheet" href="css/menu/jquery.sidr.light.css">
+    <link rel="stylesheet" href="css/menu/menu.css">
+    <script type="text/javascript" src="scripts/jquery.js"></script>
+    <script data-main="scripts/main" src="scripts/require.js"></script>
     <title>Onet - wersja mobilna</title>	
 </head>
 <body>
+    <div id="menuOverlay"></div>
+    <div><a id="slideMenu" href="#sidr"></a></div>
+    <div id="sidr">
+        <div id="menuContent">
+            <div><a class="p1" href="#"><span>&rsaquo;</span>Tv</a></div>
+            <div><a class="p2" href="#"><span>&rsaquo;</span>Kina</a></div>
+            <div><a class="p3" href="#"><span>&rsaquo;</span>Waluty</a></div>
+            <div><a class="p4" href="#"><span>&rsaquo;</span>Wiadomości</a></div>
+            <div><a class="p5" href="#"><span>&rsaquo;</span>Sport</a></div>
+            <div><a class="p6" href="#"><span>&rsaquo;</span>Biznes</a></div>
+            <div><a class="p7" href="#"><span>&rsaquo;</span>Rozrywka</a></div>
+            <div><a class="p8" href="#"><span>&rsaquo;</span>Technologie</a></div>
+            <div><a class="p9" href="#"><span>&rsaquo;</span>Moto</a></div>
+            <div><a class="p10" href="#"><span>&rsaquo;</span>Styl życia</a></div>
+            <div><a class="p11" href="#"><span>&rsaquo;</span>Widza i świat</a></div>
+        </div>
+    </div>
 	<div id="header">
-		<img src="img/logosg.png" />
+		<a href="#"><img src="img/logosg.png" /></a>
+		<img src="img/mail.png" class="mailIcon" />
 	</div>
 	<div id="wrapper">
 
+		
 	</div>	
 
 	<script type="text/template" id="sgDetail">
-		<a href="#detail/<%=id %>">
-			<img src="<%=image %>" />
-			<div class="label"><%= mainTopic %></div>
-			<div class="newsTitle"><%=title %></div>
-		</a>
+		
+			<a href="#detail/<%=id %>">
+				<img src="<%=image %>" />
+				<div class="label <%= servicePath.split('.')[0] %>"><%=   mainTopic %></div>
+				<div class="newsTitle"><%=title %></div>
+			</a>
+		
 	</script>
+	
 	<script type="text/template" id="lead">
 		<a href="#detail/<%=id %>">
 			<div class="topNews" style="background-image:url(<%=image %>)">
@@ -33,21 +63,27 @@
 			</div>
 		</a>
 	</script>
+    
 	<script type="text/template" id="index">
-		<div id="sg" class="content">
-			<div id="topNews">
 
-			</div>
-			<div class="menuTiles">
-				<div class="menuTile">Wiadomości</div>
-				<div class="menuTile">Sport</div>
-				<div class="menuTile">Styl życia</div>
-				<div class="menuTile">Biznes</div>
-				<div class="menuTile">Rozrywka</div>
-				<div class="menuTile">Wiedza i kultura</div>
-			</div>
-			<div id="newsList">
+		<div class="slide">
+			<div id="sg" class="content">
+				<div id="topNews">
+				</div>
+				<div class="menuTiles">
+                    <a class="menuTile menuBtn" href="javascript:void(0);" id="menuBtn" onclick="Menu.toggle();">Menu</a>
+					<div class="menuTile wiadomosci " category="Wiadomości">Wiadomości</div>
+					<div class="menuTile sport" category="Sport">Sport</div>
+					<div class="menuTile styl-zycia" category="Styl życia">Styl życia</div>
+					<div class="menuTile biznes disabledCategory" category="Biznes">Biznes</div>
+					<div class="menuTile rozrywka" category="Rozrywka">Rozrywka</div>
+					<div class="menuTile gadzety" category="Gadżety">Technologie i Gry</div>
+					<div class="menuTile moto disabledCategory" category="Moto">Moto</div>
+					<div class="menuTile wiedza-swiat" category="Wiedza i świat">Wiedza i świat</div>
+				</div>
+				<div id="newsList" class="newsList">
 
+				</div>
 			</div>
 		</div>
 	</script>
@@ -56,57 +92,39 @@
 		<div class="slide">
 			<div class="wraper">
 				<div class="detailTop">
-					<img src="<%= meta.image.url %>" alt="%opis foto" class="mainImage">
+					<img src="<%= news.meta.image.url %>" alt="%opis foto" class="mainImage">
 					<div class="prevButton"></div><div class="nextButton"></div>
 					<!--<div class="titleOverlay"></div>-->
-					<h1 class="title">Polska się wyludnia, tak źle nie było od lat</h1>
+					<h1 class="title"><%= news.meta.title %></h1>
 				</div>
 				<article class="mainText">
-					<p class="articleFirst">
-					Siostry Agnieszka i Urszula Radwańskie oraz Michał Przysiężny będą w czwartek walczyć o awans do trzeciej rundy wielkoszlemowego turnieju na trawie w Wimbledonie (pula nagród 22,56 mln funtów). W deblu i mikście zagra jeszcze pięcioro polskich tenisistów.
-			</p><p class="article">
-					Rozstawiona z numerem czwartym Agnieszka Radwańska wystąpi na Korcie Centralnym po raz pierwszy od ubiegłorocznego finału, w którym przegrała w trzech wyrównanych setach z Amerykanką Sereną Williams. Tym razem przeciwniczką 24-letniej Polki będzie Francuzka Mathilde Johansson, 98. w rankingu WTA Tour.
-			</p><p class="article">
-					Dotychczas ze sobą nie grały, a rozpoczną rywalizację po zakończeniu spotkania Argentyńczyka Juana Martina del Potro (nr 8.) z Kanadyjczykiem Jessem Levinem. Może to nastąpić około godziny 17 czasu polskiego.
-			</p><p class="article">
-					Wcześniej, w drugim meczu (pierwszy pojedynek kobiet rozpocznie się o 12.30) na korcie nr 17, wystąpi Michał Przysiężny. Jego rywalem będzie Kevin Anderson z RPA (nr 27.). Oni również jeszcze na siebie nie trafiali.
-			</p><p class="article">
-					Dopiero pod wieczór o awans do trzeciej rundy będzie walczyć Urszula Radwańska, 44. w rankingu WTA Tour. Po drugiej stronie siatki, w ostatnim pojedynku na korcie numer 14., stanie Amerykanka Alison Riske, z którą krakowianka ma niekorzystny bilans 1-2.
-			</p><p class="article">
-					Występy w 127. edycji Wimbledonu w czwartek o godz. 11.30 (12.30 czasu polskiego) rozpoczną dwa polskie deble. Na korcie numer 9 Łukasz Kubot i Marcin Matkowski zagrają przeciwko Szwedowi Johanowi Brunstromowi i Ravenowi Klaasenowi z RPA. Natomiast na "19-tce" Tomasz Bednarek i Mateusz Kowalczyk spotkają się z Litwinem Ricardasem Berankisem i Yen-Hsun Lu z Tajwanu.
-			</p><p class="article">
-					Najwcześniej, o godzinie 17, jeśli się zwolni jakiś kort, w pierwszej rundzie gry mieszanej wystąpi Alicja Rosolska w parze z Holendrem Robinem Haasem. Ich rywalami będą Brytyjczycy Heather Watson i Jonathan Marray.
-					</p>
+					<% _.each(news.manifest.ref_0.content.blocks, function(v, i) { %>
+						<p class="<% if (i === 0) { %>articleFirst<% } else { %>article<% } %>"><%= v.data.text %></p> 
+					<% }); %>
 				</article>
 				<aside class="moreArticles">
 					<h2>Więcej na temat</h2>
-					<div class="newsList">
-							<div class="newsTile">
-								<img src="img/newsImg.jpg" />
-								<div class="label">Sport</div>
-								<div class="newsTitle">Wimbledon: historia tworzy się na naszych oczach</div>
-							</div>
-							<div class="newsTile">
-								<img src="img/newsImg.jpg" />
-								<div class="label">Wiadomości</div>
-								<div class="newsTitle">Wimbledon: historia tworzy się na naszych oczach</div>
-							</div>
-							<div class="newsTile">
-								<img src="img/newsImg.jpg" />
-								<div class="label">Styl życia</div>
-								<div class="newsTitle">Wimbledon: historia tworzy się na naszych oczach</div>
-							</div>
-							<div class="newsTile">
-								<img src="img/newsImg.jpg" />
-								<div class="label">Styl życia</div>
-								<div class="newsTitle">Wimbledon: historia tworzy się na naszych oczach</div>
-							</div>
-							<div class="placeholder">
-							</div>
-						</div>
+					<div id="newsListRec" class="newsList">
+						
+					</div>
 				</aside>
 			</div>
 		</div>
 	</script>
+
+	<script type="text/template" id="recommendedList">
+		<% _.each(rec.elements, function(v, i) { %>
+			<% if (typeof v.image !== 'undefined' && v.image !== "") { %>
+				<div class="newsTile">
+					<img src="<%= v.image %>" />
+					<div class="label"><%= v.mainTopic %></div>
+					<div class="newsTitle"><%= v.title %></div>
+				</div>
+			<% } %>
+		<% }); %>
+		<div class="placeholder">
+		</div>
+	</script>
+
 </body>
 </html>
