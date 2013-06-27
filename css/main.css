@@ -12,7 +12,7 @@ body{
 	height: 33px;
 }
 
-.content {
+.content, #header {
 	margin: 0px 70px;
 }
 
@@ -24,7 +24,13 @@ body{
 	}
 
 #header {
-	width: 100%;
+	width: 89%;
+}
+
+.mailIcon {
+	float: right;
+	width:40px;
+	height: 40px;
 }
 
 .topNews {
@@ -68,6 +74,8 @@ body{
 	text-transform: uppercase;
 
 }
+
+
 
 .newsList {
 	text-align: justify;
@@ -118,27 +126,27 @@ body{
 }
 
 .wiadomosci{
-	background-color: #88c232;
+	background-color: #09abd1;
 }
 
 .sport{
-	background-color: #608277;
+	background-color: #ea450a;
 }
 
 .rozrywka{
-	background-color: #644c69;
-}
-
-.stylZycia{
-	background-color: #20abba;
-}
-
-.wiedza{
 	background-color: #bd2d4a;
 }
 
+.stylZycia{
+	background-color: #a92e9c;
+}
+
+.wiedza{
+	background-color: #d70848;
+}
+
 .biznes{
-	background-color: #fc9c00;
+	background-color: #09a88b;
 }
 
 .moto{
@@ -146,11 +154,15 @@ body{
 }
 
 .technologie {
-	background-color: #e81c23;
+	background-color: #fc9c00;
+}
+
+.disabledCategory {
+	background-color: silver;
 }
 
 @media (max-width: 800px){
-	.content {
+	.content, #header {
 	 	margin: 0px 30px;
 	}
 
@@ -175,7 +187,7 @@ body{
 /* 2 COL */
 
 @media (max-width: 600px){
-	.content {
+	.content, #header {
 	  	margin: 0px 15px;
 	}
 
@@ -200,7 +212,7 @@ body{
 /* SINGLE COL */
 
 @media (max-width: 400px){
-	.content {
+	.content, #header {
 	  	margin: 0px 5px;
 	}
 
