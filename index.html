@@ -57,5 +57,50 @@
 			</div>
 		</div>
 	</script>
+
+	<script type="text/template" id="detail">
+		<div class="slide">
+			<div class="wraper">
+				<div class="detailTop">
+					<img src="http://m.ocdn.eu/_m/b77ff14ddb4d67fea0d27054a97bf3be,31,1,0-52-2000-600-0.jpg" alt="%opis foto" class="mainImage">
+					<div class="prevButton"></div><div class="nextButton"></div>
+					<!--<div class="titleOverlay"></div>-->
+					<h1 class="title"><%= meta.title %></h1>
+				</div>
+				<article class="mainText">
+					<% _.each(manifest.ref_0.content.blocks, function(v, i) { %>
+						<p class="<% if (i === 0) { %>articleFirst<% } else { %>article<% } %>"><%= v.data.text %></p> 
+					<% }); %>
+				</article>
+				<aside class="moreArticles">
+					<h2>Więcej na temat</h2>
+					<div class="newsList">
+							<div class="newsTile">
+								<img src="img/newsImg.jpg" />
+								<div class="label">Sport</div>
+								<div class="newsTitle">Wimbledon: historia tworzy się na naszych oczach</div>
+							</div>
+							<div class="newsTile">
+								<img src="img/newsImg.jpg" />
+								<div class="label">Wiadomości</div>
+								<div class="newsTitle">Wimbledon: historia tworzy się na naszych oczach</div>
+							</div>
+							<div class="newsTile">
+								<img src="img/newsImg.jpg" />
+								<div class="label">Styl życia</div>
+								<div class="newsTitle">Wimbledon: historia tworzy się na naszych oczach</div>
+							</div>
+							<div class="newsTile">
+								<img src="img/newsImg.jpg" />
+								<div class="label">Styl życia</div>
+								<div class="newsTitle">Wimbledon: historia tworzy się na naszych oczach</div>
+							</div>
+							<div class="placeholder">
+							</div>
+						</div>
+				</aside>
+			</div>
+		</div>
+	</script>
 </body>
 </html>

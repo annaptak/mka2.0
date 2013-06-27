@@ -6,6 +6,7 @@ define(['app/views/detail'], function(DetailView){
 			var that = this;
 			queryOnet.getNewsDetail(id, function(err, result) {
 				if (err === null) {
+					console.log(result);
 					that.set(result);
 					that.render();
 				}
