@@ -1,3 +1,4 @@
+var myScroll = false;
 var Menu = {
     init: function() {
         $(document).ready(function() {
@@ -12,24 +13,31 @@ var Menu = {
                 tapToClick: true,
                 wipeLeft: function(result) {
                     $.sidr('close', 'sidr', function() {
+                        $('#menuOverlay').css('display', 'none');
                     });
                 },
                 wipeRight: function(result) {
+                    $('#menuOverlay').css('display', 'block');
                     $.sidr('open', 'sidr', function() {
-                        $('#menuOverlay').css('display', 'block');
+                        if (!myScroll) {
+                            myScroll = new iScroll('sidr');
+                        }
                     });
                 }
             });
         });
     },
-    toggle : function() {
+    toggle: function() {
         if ($('#sidr').is(":visible")) {
             $.sidr('close', 'sidr', function() {
                 $('#menuOverlay').css('display', 'none');
             });
         } else {
+            $('#menuOverlay').css('display', 'block');
             $.sidr('open', 'sidr', function() {
-                $('#menuOverlay').css('display', 'block');
+                if (!myScroll) {
+                    myScroll = new iScroll('sidr');
+                }
             });
         }
     }
