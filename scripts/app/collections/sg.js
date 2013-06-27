@@ -13,7 +13,11 @@ define(['app/models/sgdetail','app/views/sgdetail'],function(SgDetail,SgDetailVi
 		},
 		render: function(){
 			this.each(function(element){
-				var view = new SgDetailView({model: element});
+				if(element.get('image')){
+					console.log(element.get('image'));
+					var view = new SgDetailView({model: element});
+				}
+				//console.log(element);
 			});
 		}
 	});

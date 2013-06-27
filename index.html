@@ -3,18 +3,45 @@
 <head>
 	<script data-main="scripts/main" src="scripts/require.js"></script>
 	<link rel="stylesheet" href="css/main.css"></link>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="application-name" content="Onet.pl"/> 
+    <link rel="stylesheet" href="css/main.css"></link>
+    <link rel="stylesheet" href="css/sg.css"></link>
+    <meta name="HandheldFriendly" content="true" />
+    <title>Onet - wersja mobilna</title>	
 </head>
 <body>
+	<div id="header">
+		<img src="img/logosg.png" />
+	</div>
+	<div id="wrapper">
+		<div id="sg" class="content">
+			<div class="topNews">
+				<div class="topNewsTitle">Wimbledon: historia tworzy się na naszych oczach</div>
+			</div>
+			<div class="menuTiles">
+				<div class="menuTile">Wiadomości</div>
+				<div class="menuTile">Sport</div>
+				<div class="menuTile">Styl życia</div>
+				<div class="menuTile">Biznes</div>
+				<div class="menuTile">Rozrywka</div>
+				<div class="menuTile">Wiedza i kultura</div>
+			</div>
+			<div id="newsList">
+
+			</div>
+		</div>
+	</div>	
 	<ul id="mainList">
 
 	</ul>
 
 	<script type="text/template" id="sgDetail">
-		<div>
-			<h3>
-				 <%=title%> 
-			</h3>
-		</div>
+		<img src="<%=image %>" />
+		<div class="label"></div>
+		<div class="newsTitle"><%=title %></div>
 	</script>
 </body>
 </html>

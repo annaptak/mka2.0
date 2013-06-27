@@ -13,7 +13,7 @@ define([],function(){
 		render: function(){
 			console.log(this.el);
 			this.$el.html(this.template(this.model.toJSON()));
-			$('#mainList').append(this.$el);
+			$('#newsList').append(this.$el);
 		}
 	});
 	return SgDetail;
