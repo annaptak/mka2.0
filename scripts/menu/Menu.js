@@ -2,35 +2,30 @@ var myScroll = false;
 var Menu = {
     init: function() {
         $(document).ready(function() {
-            
-            $('#obrazek').load(function() {
-                $(this).addClass('animate');
-                console.log('zaladowany');
-            })
-//            $('#slideMenu').sidr();
-//            $('#slideMenu').unbind('click').click(function() {
-//                Menu.toggle();
-//            });
-//            $('#menuOverlay').click(function() {
-//                Menu.toggle();
-//            });
-//            $(window).wipetouch({
-//                preventDefault: false, 
-//                tapToClick: false,
-//                wipeLeft: function(result) {
-//                    $.sidr('close', 'sidr', function() {
-//                        $('#menuOverlay').css('display', 'none');
-//                    });
-//                },
-//                wipeRight: function(result) {
-//                    $('#menuOverlay').css('display', 'block');
-//                    $.sidr('open', 'sidr', function() {
-//                        if (!myScroll) {
-//                            myScroll = new iScroll('sidr');
-//                        }
-//                    });
-//                }
-//            });
+            $('#slideMenu').sidr();
+            $('#slideMenu').unbind('click').click(function() {
+                Menu.toggle();
+            });
+            $('#menuOverlay').click(function() {
+                Menu.toggle();
+            });
+            $(window).wipetouch({
+                preventDefault: false, 
+                tapToClick: false,
+                wipeLeft: function(result) {
+                    $.sidr('close', 'sidr', function() {
+                        $('#menuOverlay').css('display', 'none');
+                    });
+                },
+                wipeRight: function(result) {
+                    $('#menuOverlay').css('display', 'block');
+                    $.sidr('open', 'sidr', function() {
+                        if (!myScroll) {
+                            myScroll = new iScroll('sidr');
+                        }
+                    });
+                }
+            });
         });
     },
     toggle: function() {
