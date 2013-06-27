@@ -11,15 +11,19 @@ var Menu = {
             $(document).wipetouch({
                 tapToClick: true,
                 wipeLeft: function(result) {
-                    Menu.toggle();
+                    $.sidr('close', 'sidr', function() {
+                        $('#menuOverlay').css('display', 'none');
+                    });
                 },
                 wipeRight: function(result) {
-                    Menu.toggle();
+                    $.sidr('open', 'sidr', function() {
+                        $('#menuOverlay').css('display', 'block');
+                    });
                 }
             });
         });
     },
-    toggle : function() {
+    toggle: function() {
         if ($('#sidr').is(":visible")) {
             $.sidr('close', 'sidr', function() {
                 $('#menuOverlay').css('display', 'none');
