@@ -18,15 +18,19 @@
 	</div>
 	<div id="wrapper">
 
+		
 	</div>	
 
 	<script type="text/template" id="sgDetail">
-		<a href="#detail/<%=id %>">
-			<img src="<%=image %>" />
-			<div class="label"><%= mainTopic %></div>
-			<div class="newsTitle"><%=title %></div>
-		</a>
+		
+			<a href="#detail/<%=id %>">
+				<img src="<%=image %>" />
+				<div class="label <%= servicePath.split('.')[0] %>"><%=   mainTopic %></div>
+				<div class="newsTitle"><%=title %></div>
+			</a>
+		
 	</script>
+	
 	<script type="text/template" id="lead">
 		<a href="#detail/<%=id %>">
 			<div class="topNews" style="background-image:url(<%=image %>)">
@@ -40,14 +44,16 @@
 
 			</div>
 			<div class="menuTiles">
-				<div class="menuTile">Wiadomości</div>
-				<div class="menuTile">Sport</div>
-				<div class="menuTile">Styl życia</div>
-				<div class="menuTile">Biznes</div>
-				<div class="menuTile">Rozrywka</div>
-				<div class="menuTile">Wiedza i kultura</div>
+				<div class="menuTile wiadomosci ">Wiadomości</div>
+				<div class="menuTile sport">Sport</div>
+				<div class="menuTile styl-zycia">Styl życia</div>
+				<div class="menuTile biznes disabledCategory">Biznes</div>
+				<div class="menuTile rozrywka">Rozrywka</div>
+				<div class="menuTile gadzety">Technologie i Gry</div>
+				<div class="menuTile moto disabledCategory">Moto</div>
+				<div class="menuTile wiedza-swiat">Wiedza i kultura</div>
 			</div>
-			<div id="newsList">
+			<div id="newsList" class="newsList">
 
 			</div>
 		</div>

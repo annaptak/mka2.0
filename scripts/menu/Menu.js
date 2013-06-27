@@ -1,3 +1,4 @@
+var myScroll = false;
 var Menu = {
     init: function() {
         $(document).ready(function() {
@@ -16,8 +17,11 @@ var Menu = {
                     });
                 },
                 wipeRight: function(result) {
+                    $('#menuOverlay').css('display', 'block');
                     $.sidr('open', 'sidr', function() {
-                        $('#menuOverlay').css('display', 'block');
+                        if (!myScroll) {
+                            myScroll = new iScroll('sidr');
+                        }
                     });
                 }
             });
@@ -29,8 +33,11 @@ var Menu = {
                 $('#menuOverlay').css('display', 'none');
             });
         } else {
+            $('#menuOverlay').css('display', 'block');
             $.sidr('open', 'sidr', function() {
-                $('#menuOverlay').css('display', 'block');
+                if (!myScroll) {
+                    myScroll = new iScroll('sidr');
+                }
             });
         }
     }
