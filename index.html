@@ -1,19 +1,44 @@
 <!Doctype HTML>
 <html>
 <head>
-	<script data-main="scripts/main" src="scripts/require.js"></script>
-	<link rel="stylesheet" href="css/main.css"></link>
-	<link rel="stylesheet" type="text/css" href="css/detal.css">
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="application-name" content="Onet.pl"/> 
+    <meta name="msapplication-TileColor" content="#ffffff"/> 
+    <meta name="msapplication-TileImage" content="http://ocdn.eu/images/pulscms/ZmQ7MDA_/a3999790d747fc0b5b0b499285bb62d1.png"/>
     <meta name="HandheldFriendly" content="true" />
+    
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/detal.css">
+
+    <link rel="stylesheet" href="css/menu/jquery.sidr.light.css">
+    <link rel="stylesheet" href="css/menu/menu.css">
+    <script type="text/javascript" src="scripts/jquery.js"></script>
+    <script data-main="scripts/main" src="scripts/require.js"></script>
     <title>Onet - wersja mobilna</title>	
 </head>
 <body>
+    <div id="menuOverlay"></div>
+    <div><a id="slideMenu" href="#sidr"></a></div>
+    <div id="sidr">
+        <div id="menuContent">
+            <div><a class="p1" href="#"><span>&rsaquo;</span>Tv</a></div>
+            <div><a class="p2" href="#"><span>&rsaquo;</span>Kina</a></div>
+            <div><a class="p3" href="#"><span>&rsaquo;</span>Waluty</a></div>
+            <div><a class="p4" href="#"><span>&rsaquo;</span>Wiadomości</a></div>
+            <div><a class="p5" href="#"><span>&rsaquo;</span>Sport</a></div>
+            <div><a class="p6" href="#"><span>&rsaquo;</span>Biznes</a></div>
+            <div><a class="p7" href="#"><span>&rsaquo;</span>Rozrywka</a></div>
+            <div><a class="p8" href="#"><span>&rsaquo;</span>Technologie</a></div>
+            <div><a class="p9" href="#"><span>&rsaquo;</span>Moto</a></div>
+            <div><a class="p10" href="#"><span>&rsaquo;</span>Styl życia</a></div>
+            <div><a class="p11" href="#"><span>&rsaquo;</span>Widza i świat</a></div>
+        </div>
+    </div>
 	<div id="header">
-		<img src="img/logosg.png" />
+		<a href="#"><img src="img/logosg.png" /></a>
 		<img src="img/mail.png" class="mailIcon" />
 	</div>
 	<div id="wrapper">
@@ -38,6 +63,7 @@
 			</div>
 		</a>
 	</script>
+    
 	<script type="text/template" id="index">
 
 		<div class="slide">
@@ -45,14 +71,15 @@
 				<div id="topNews">
 				</div>
 				<div class="menuTiles">
-					<div class="menuTile wiadomosci ">Wiadomości</div>
-					<div class="menuTile sport">Sport</div>
-					<div class="menuTile styl-zycia">Styl życia</div>
-					<div class="menuTile biznes disabledCategory">Biznes</div>
-					<div class="menuTile rozrywka">Rozrywka</div>
-					<div class="menuTile gadzety">Technologie i Gry</div>
-					<div class="menuTile moto disabledCategory">Moto</div>
-					<div class="menuTile wiedza-swiat">Wiedza i kultura</div>
+                    <a class="menuTile menuBtn" href="javascript:void(0);" id="menuBtn" onclick="Menu.toggle();">Menu</a>
+					<div class="menuTile wiadomosci " category="Wiadomości">Wiadomości</div>
+					<div class="menuTile sport" category="Sport">Sport</div>
+					<div class="menuTile styl-zycia" category="Styl życia">Styl życia</div>
+					<div class="menuTile biznes disabledCategory" category="Biznes">Biznes</div>
+					<div class="menuTile rozrywka" category="Rozrywka">Rozrywka</div>
+					<div class="menuTile gadzety" category="Gadżety">Technologie i Gry</div>
+					<div class="menuTile moto disabledCategory" category="Moto">Moto</div>
+					<div class="menuTile wiedza-swiat" category="Wiedza i świat">Wiedza i świat</div>
 				</div>
 				<div id="newsList" class="newsList">
 
