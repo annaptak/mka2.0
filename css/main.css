@@ -172,7 +172,7 @@ body{
 
 .menuBtn {
 	background-color: #000;
-	display: block;
+	display: none;
 	width:60px;
 }
 .menuBtn span{
