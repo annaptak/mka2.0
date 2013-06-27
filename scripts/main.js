@@ -8,6 +8,7 @@ requirejs.config({
 	    Underscore: '/scripts/underscore',
 	    Backbone: '/scripts//backbone',
 	    JSONPLoader: '/scripts/JSONPLoader',
+	    Swipe: './jquery.swipe',
 	    queryOnet: '/scripts/queryOnet',
 	    CryptoJS: '/scripts/utils/md5',
 	    StrBuf: '/scripts/utils/buffer',
@@ -17,7 +18,7 @@ requirejs.config({
 		shim: {
 			'Backbone': [
 				'Underscore','sidr','wipetouch','iscroll',
-				'Menu','JSONPLoader','queryOnet', 'CryptoJS',
+				'Menu','JSONPLoader','Swipe', 'queryOnet', 'CryptoJS',
 				'StrBuf', 'Base64', 'resizeImg'
 			],
 			'm': ['Backbone']
