@@ -3,7 +3,14 @@ define(['app/models/sgdetail','app/views/sgdetail','app/views/sglead'],function(
 		model: SgDetail,
 		fetch:  function(){
 			var that = this;
-			queryOnet.getAllNews({}, function(err, result){
+			queryOnet.getAllNews({
+				topics: [        
+				{
+	            	"name": "Tylko w onecie",
+		            	"priority": 1
+		        	}
+	        	]
+			}, function(err, result){
 				if(result){
 //					console.log(result);
 					that.add(result);
@@ -16,7 +23,7 @@ define(['app/models/sgdetail','app/views/sgdetail','app/views/sglead'],function(
 			var that = this;
 			this.readyForMore = false;
 			queryOnet.getAllNews({
-				offset: this.page *50,
+				offset: this.page *50
 			}, function(err, result){
 				if(result){
 //					console.log(result);
@@ -31,6 +38,7 @@ define(['app/models/sgdetail','app/views/sgdetail','app/views/sglead'],function(
 			this.each(function(element){
 
 				if(element.get('image')){
+					console.log(element.get('topics'));
 					var id = element.get('id');
 					id = id.replace('#NewsListElement','');
 					if(first){

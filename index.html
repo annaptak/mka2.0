@@ -38,7 +38,8 @@
         </div>
     </div>
 	<div id="header">
-		<img src="img/logosg.png" />
+		<a href="#"><img src="img/logosg.png" /></a>
+		<img src="img/mail.png" class="mailIcon" />
 	</div>
 	<div id="wrapper">
 
@@ -64,20 +65,20 @@
 	</script>
     
 	<script type="text/template" id="index">
+
 		<div class="slide">
 			<div id="sg" class="content">
 				<div id="topNews">
 				</div>
 				<div class="menuTiles">
-                    <a class="menuTile menuBtn" href="javascript:void(0);" id="menuBtn" onclick="Menu.toggle();">Menu</a>
-					<div class="menuTile wiadomosci ">Wiadomości</div>
-					<div class="menuTile sport">Sport</div>
-					<div class="menuTile styl-zycia">Styl życia</div>
-					<div class="menuTile biznes disabledCategory">Biznes</div>
-					<div class="menuTile rozrywka">Rozrywka</div>
-					<div class="menuTile gadzety">Technologie i Gry</div>
-					<div class="menuTile moto disabledCategory">Moto</div>
-					<div class="menuTile wiedza-swiat">Wiedza i kultura</div>
+					<div class="menuTile wiadomosci " category="Wiadomości">Wiadomości</div>
+					<div class="menuTile sport" category="Sport">Sport</div>
+					<div class="menuTile styl-zycia" category="Styl życia">Styl życia</div>
+					<div class="menuTile biznes disabledCategory" category="Biznes">Biznes</div>
+					<div class="menuTile rozrywka" category="Rozrywka">Rozrywka</div>
+					<div class="menuTile gadzety" category="Gadżety">Technologie i Gry</div>
+					<div class="menuTile moto disabledCategory" category="Moto">Moto</div>
+					<div class="menuTile wiedza-swiat" category="Wiedza i świat">Wiedza i świat</div>
 				</div>
 				<div id="newsList" class="newsList">
 
@@ -90,7 +91,7 @@
 		<div class="slide">
 			<div class="wraper">
 				<div class="detailTop">
-					<img src="http://m.ocdn.eu/_m/b77ff14ddb4d67fea0d27054a97bf3be,31,1,0-52-2000-600-0.jpg" alt="%opis foto" class="mainImage">
+					<img src="<%= meta.image.url %>" alt="%opis foto" class="mainImage">
 					<div class="prevButton"></div><div class="nextButton"></div>
 					<!--<div class="titleOverlay"></div>-->
 					<h1 class="title"><%= meta.title %></h1>

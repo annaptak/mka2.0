@@ -17,5 +17,5 @@ requirejs.config({
 });
 
 require(['m'], function(test) {
-  console.log("test");
+  //console.log("test");
 });
