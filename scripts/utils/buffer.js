@@ -1,0 +1,2 @@
+(function(){StrBuf=function(a){this.__data=[];if(a){var b=arguments,c;if(this instanceof StrBuf)this.push.apply(this,b);else return c=new StrBuf,c.push.apply(c,b).toString()}};StrBuf.prototype={push:function(a){var b=arguments,c=b[1],d;d=2>b.length?void 0==a?"":a:"object"==typeof c?a.replace(/\$\{([\w.]+)\}/g,function(a,b){for(var d=b.split("."),f=0,g=d.length,e=c;f<g;)try{e=e[d[f++]]}catch(h){e=a}return e}):a.replace(/\{(\d+)\}/g,function(a,c){return b[+c+1]});this.__data.push(d);return this},toString:function(a){return this.__data.join(void 0==
+a?"":a)}}})();

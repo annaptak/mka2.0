@@ -1,4 +1,4 @@
-define([], function(){
+define(['app/collections/sg'], function(Sg){
 	$(function(){
 		//start routing
 		MkRouter = Backbone.Router.extend({
@@ -8,7 +8,9 @@ define([], function(){
 			},
 
 			index: function(){
-				console.log("index");		
+				console.log("index");
+				var sg = new Sg;
+				sg.fetch();	
 			},
 
 			list: function(){
