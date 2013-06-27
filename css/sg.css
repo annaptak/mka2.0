@@ -1,0 +1,86 @@
+@font-face{
+		font-family:"UniversLTW02-59UltraCn";
+		src:url("fonts/big_noodle_titling.ttf") format("truetype");
+		font-style:normal;
+		font-weight:normal
+	}
+
+#header {
+	width: 100%;
+}
+
+.topNews {
+	background-image: url("../img/bigone.jpg");
+	background-size: cover;
+    background-repeat: no-repeat;
+	width:100%;
+	height:400px;
+	position: relative;
+}
+
+.topNewsTitle {
+	bottom: 0;
+	color: #fff;
+	min-height: 55px;
+	padding: 52px 20px;
+	position: absolute;
+	text-align: center;
+	background-color: rgba(25,25,25,0.5);
+	font-family: "Times New Roman","Times",serif;
+	font-size: 40px;
+	font-size: 4.0rem;
+	font-style: italic;
+	text-transform: uppercase;
+	line-height: 1;
+}
+
+.menuTiles {
+	width:100%;
+	text-align: left;
+}
+
+.menuTile {
+	display:inline-block;
+	background-color: red;
+	color: white;
+	font-family:UniversLTW02-59UltraCn;
+	margin: 10px 5px 10px 0px;
+	padding: 10px 5px 10px 5px;
+	font-size: 22px;
+
+}
+
+.newsTile {
+	width: 278px;
+	float:left;
+	margin:10px 20px 10px 0px;
+	position: relative;
+
+}
+
+.newsTile img {
+	width: 100%;
+}
+
+.newsTile .newsTitle {
+	width: 100%;
+	font-family: "Times New Roman","Times",serif;
+	font-size: 20px;
+	font-style: italic;
+	text-transform: uppercase;
+	line-height: 1;
+	float:left;
+}
+
+.newsTile .label{
+	display:inline-block;
+	background-color: red;
+	color: white;
+	font-family:UniversLTW02-59UltraCn;
+	margin: 0px;
+	padding: 3px 7px 3px 7px;
+	font-size: 15px;
+	top:50px;
+	right:0px;
+	position:absolute;
+}
