@@ -3,9 +3,9 @@ define(['app/views/detail'], function(DetailView){
 
 		fetch: function() {
 			var id = 'PULS_CMS-Article-e8503c1c-24d7-4b0e-8980-85598ccb4937';
+			var that = this;
 			queryOnet.getNewsDetail(id, function(err, result) {
-				console.log(result);
-				if (result) {
+				if (err === null) {
 					that.set(result);
 					that.render();
 				}

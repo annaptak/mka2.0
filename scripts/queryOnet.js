@@ -51,16 +51,15 @@ var queryOnet = {
 			url = "query.mobile.onetapi.pl",
 			method = "get",
         	params= [_newsId];
-        
+
         loader.appId = "sport.windows.mobile-apps.onetapi.pl";
 
         loader.getJSONRPC(url, method, params, function(e, result){
-        	console.log(result);
         	if(e){
         		_callback("error", null);
         	}else{
         		//console.log(result.elements);
-        		_callback(null, result.result);
+        		_callback(null, result);
         	}
         });
     }

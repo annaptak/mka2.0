@@ -1,4 +1,4 @@
-define(['app/collections/sg'], function(Sg){
+define(['app/collections/sg', 'app/models/detail'], function(Sg, DetailModel){
 	$(function(){
 		//start routing
 		var MkRouter = Backbone.Router.extend({
@@ -21,6 +21,9 @@ define(['app/collections/sg'], function(Sg){
 			detail: function(_id) {
 				console.log(_id);
 				console.log('detail');
+
+				detail = new DetailModel;
+				detail.fetch(_id);
 			}
 		});
 
