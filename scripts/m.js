@@ -1,7 +1,7 @@
 define([], function(){
 	$(function(){
 		//start routing
-		FirstRouter = Backbone.Router.extend({
+		MkRouter = Backbone.Router.extend({
 			routes:{
 				"": "index",
 				"list": "list"
@@ -18,7 +18,7 @@ define([], function(){
 
 		//model TODO
 
-		var router = new FirstRouter;
+		var router = new MkRouter;
 		Backbone.history.start();
 	});
 });
