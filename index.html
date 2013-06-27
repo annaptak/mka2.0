@@ -3,34 +3,29 @@
 <head>
 	<script data-main="scripts/main" src="scripts/require.js"></script>
 	<link rel="stylesheet" href="css/main.css"></link>
-	<link rel="stylesheet" type="text/css" href="css/detal.css">
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="application-name" content="Onet.pl"/> 
+    <link rel="stylesheet" href="css/main.css"></link>
     <meta name="HandheldFriendly" content="true" />
     <title>Onet - wersja mobilna</title>	
 </head>
 <body>
 	<div id="header">
 		<img src="img/logosg.png" />
-		<img src="img/mail.png" class="mailIcon" />
 	</div>
 	<div id="wrapper">
 
-		
 	</div>	
 
 	<script type="text/template" id="sgDetail">
-		
-			<a href="#detail/<%=id %>">
-				<img src="<%=image %>" />
-				<div class="label <%= servicePath.split('.')[0] %>"><%=   mainTopic %></div>
-				<div class="newsTitle"><%=title %></div>
-			</a>
-		
+		<a href="#detail/<%=id %>">
+			<img src="<%=image %>" />
+			<div class="label"><%= mainTopic %></div>
+			<div class="newsTitle"><%=title %></div>
+		</a>
 	</script>
-	
 	<script type="text/template" id="lead">
 		<a href="#detail/<%=id %>">
 			<div class="topNews" style="background-image:url(<%=image %>)">
@@ -39,24 +34,20 @@
 		</a>
 	</script>
 	<script type="text/template" id="index">
+		<div id="sg" class="content">
+			<div id="topNews">
 
-		<div class="slide">
-			<div id="sg" class="content">
-				<div id="topNews">
-				</div>
-				<div class="menuTiles">
-					<div class="menuTile wiadomosci ">Wiadomości</div>
-					<div class="menuTile sport">Sport</div>
-					<div class="menuTile styl-zycia">Styl życia</div>
-					<div class="menuTile biznes disabledCategory">Biznes</div>
-					<div class="menuTile rozrywka">Rozrywka</div>
-					<div class="menuTile gadzety">Technologie i Gry</div>
-					<div class="menuTile moto disabledCategory">Moto</div>
-					<div class="menuTile wiedza-swiat">Wiedza i kultura</div>
-				</div>
-				<div id="newsList" class="newsList">
+			</div>
+			<div class="menuTiles">
+				<div class="menuTile">Wiadomości</div>
+				<div class="menuTile">Sport</div>
+				<div class="menuTile">Styl życia</div>
+				<div class="menuTile">Biznes</div>
+				<div class="menuTile">Rozrywka</div>
+				<div class="menuTile">Wiedza i kultura</div>
+			</div>
+			<div id="newsList">
 
-				</div>
 			</div>
 		</div>
 	</script>
@@ -68,12 +59,24 @@
 					<img src="http://m.ocdn.eu/_m/b77ff14ddb4d67fea0d27054a97bf3be,31,1,0-52-2000-600-0.jpg" alt="%opis foto" class="mainImage">
 					<div class="prevButton"></div><div class="nextButton"></div>
 					<!--<div class="titleOverlay"></div>-->
-					<h1 class="title"><%= meta.title %></h1>
+					<h1 class="title">Polska się wyludnia, tak źle nie było od lat</h1>
 				</div>
 				<article class="mainText">
-					<% _.each(manifest.ref_0.content.blocks, function(v, i) { %>
-						<p class="<% if (i === 0) { %>articleFirst<% } else { %>article<% } %>"><%= v.data.text %></p> 
-					<% }); %>
+					<p class="articleFirst">
+					Siostry Agnieszka i Urszula Radwańskie oraz Michał Przysiężny będą w czwartek walczyć o awans do trzeciej rundy wielkoszlemowego turnieju na trawie w Wimbledonie (pula nagród 22,56 mln funtów). W deblu i mikście zagra jeszcze pięcioro polskich tenisistów.
+			</p><p class="article">
+					Rozstawiona z numerem czwartym Agnieszka Radwańska wystąpi na Korcie Centralnym po raz pierwszy od ubiegłorocznego finału, w którym przegrała w trzech wyrównanych setach z Amerykanką Sereną Williams. Tym razem przeciwniczką 24-letniej Polki będzie Francuzka Mathilde Johansson, 98. w rankingu WTA Tour.
+			</p><p class="article">
+					Dotychczas ze sobą nie grały, a rozpoczną rywalizację po zakończeniu spotkania Argentyńczyka Juana Martina del Potro (nr 8.) z Kanadyjczykiem Jessem Levinem. Może to nastąpić około godziny 17 czasu polskiego.
+			</p><p class="article">
+					Wcześniej, w drugim meczu (pierwszy pojedynek kobiet rozpocznie się o 12.30) na korcie nr 17, wystąpi Michał Przysiężny. Jego rywalem będzie Kevin Anderson z RPA (nr 27.). Oni również jeszcze na siebie nie trafiali.
+			</p><p class="article">
+					Dopiero pod wieczór o awans do trzeciej rundy będzie walczyć Urszula Radwańska, 44. w rankingu WTA Tour. Po drugiej stronie siatki, w ostatnim pojedynku na korcie numer 14., stanie Amerykanka Alison Riske, z którą krakowianka ma niekorzystny bilans 1-2.
+			</p><p class="article">
+					Występy w 127. edycji Wimbledonu w czwartek o godz. 11.30 (12.30 czasu polskiego) rozpoczną dwa polskie deble. Na korcie numer 9 Łukasz Kubot i Marcin Matkowski zagrają przeciwko Szwedowi Johanowi Brunstromowi i Ravenowi Klaasenowi z RPA. Natomiast na "19-tce" Tomasz Bednarek i Mateusz Kowalczyk spotkają się z Litwinem Ricardasem Berankisem i Yen-Hsun Lu z Tajwanu.
+			</p><p class="article">
+					Najwcześniej, o godzinie 17, jeśli się zwolni jakiś kort, w pierwszej rundzie gry mieszanej wystąpi Alicja Rosolska w parze z Holendrem Robinem Haasem. Ich rywalami będą Brytyjczycy Heather Watson i Jonathan Marray.
+					</p>
 				</article>
 				<aside class="moreArticles">
 					<h2>Więcej na temat</h2>
