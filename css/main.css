@@ -10,3 +10,6 @@ body{
     overflow: hidden;
     float: left;
 }
+.content {
+	margin: 0px 70px;
+}
