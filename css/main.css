@@ -168,8 +168,13 @@ body{
 
 .menuBtn {
 	background-color: #000;
-	display: none;
+	display: block;
 	width:60px;
+}
+.menuBtn span{
+	margin-left: 16px;
+	font-size: 28px;
+	line-height: 0.5;
 }
 
 @media (max-width: 800px){

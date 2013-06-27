@@ -4,7 +4,7 @@ define(['app/collections/sg'],function(SgCollection){
 		events:{
 			'touchstart #sg': 'onScroll',
 			'click .menuTile': 'categoryOnClick'
-			//'click img': 'showDetail'
+			//'click img': 'showDetail
 		},
 		template: _.template($('#index').html()),
 		initialize: function(){
@@ -25,7 +25,9 @@ define(['app/collections/sg'],function(SgCollection){
 	         	if(current*2 > height && that.sg.readyForMore){
 	         		that.sg.fetchMore();
 	         	}
-	        });			
+	        });	
+
+	        $('.item').click(this.categoryOnClick);	
 
 		},
 
