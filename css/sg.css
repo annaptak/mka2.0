@@ -52,6 +52,9 @@
 
 .newsTile {
 	width: 300px;
+	float:left;
+	margin:10px;
+	position: relative;
 
 }
 
@@ -67,4 +70,8 @@
 	text-transform: uppercase;
 	line-height: 1;
 	float:left;
+}
+
+.newsTile .label{
+
 }
