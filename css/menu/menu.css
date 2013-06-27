@@ -1,4 +1,6 @@
-
+#sidr {
+    overflow: hidden !important;
+}
 
 #menuOverlay {
     position: fixed;
@@ -69,4 +71,5 @@
                 margin-right: 10px;
                 text-align: center;
                 font-size: 30px;
+                line-height: 27px;
             }
