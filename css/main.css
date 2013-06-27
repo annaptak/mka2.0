@@ -163,6 +163,10 @@ body{
 	background-color: silver;
 }
 
+.menuBtn {
+	background-color: #000;
+}
+
 @media (max-width: 800px){
 	.content, #header {
 	 	margin: 0px 30px;
