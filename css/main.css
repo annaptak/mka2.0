@@ -1,5 +1,5 @@
 body{
-	background-color: #000;
+	background-color: #fff;
 }
 
 #slideMenu {
@@ -9,4 +9,7 @@ body{
     text-indent: -999px;
     overflow: hidden;
     float: left;
+}
+.content {
+	margin: 0px 70px;
 }

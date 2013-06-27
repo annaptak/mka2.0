@@ -29,9 +29,11 @@ p.articleFirst, p.article{
 	font-size:1.2em;
 	line-height:1.5em;
 	margin-top: 2em;
+	word-wrap: break-word;
+	text-rendering: optimizeLegibility;
 }
 p.articleFirst:first-letter{
-	font-size: 4em;
+	font-size: 5em;
 	font-style: italic;
 	float:left;
 	line-height:1em;
