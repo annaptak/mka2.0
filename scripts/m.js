@@ -1,31 +1,34 @@
-define(['app/collections/sg'], function(Sg){
+define(['app/views/indexview','app/collections/sg', 'app/models/detail'], function(IndexView, Sg, DetailModel){
 	$(function(){
 		//start routing
-		MkRouter = Backbone.Router.extend({
+		var MkRouter = Backbone.Router.extend({
 			routes:{
 				"": "index",
 				"list": "list",
-				"detail": "detail"
+				"detail/:id": "detail"
 			},
 
 			index: function(){
+				/*
 				console.log("index");
 				var sg = new Sg;
-				sg.fetch();	
+				sg.fetch();	*/
+				var index = new IndexView();
 			},
 
 			list: function(){
 				console.log("list");
 			},
 
-			detail: function() {
-				console.log('detail');
+			detail: function(_id) {
+				detail = new DetailModel;
+				detail.fetch();
 			}
 		});
 
 		//model TODO
 
-		var router = new MkRouter;
+		var r = new MkRouter;
 		Backbone.history.start();
 	});
 });

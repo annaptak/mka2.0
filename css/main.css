@@ -2,19 +2,35 @@ body{
 	
 }
 
-.content {
+#slideMenu {
+    background-color: #fff;
+    float: left;
+    background-image: url('../images/sprite.png');
+    background-repeat: no-repeat;
+    background-position:  -546px 0;
+	width: 33px;
+	height: 33px;
+}
+
+.content, #header {
 	margin: 0px 70px;
 }
 
 @font-face{
 		font-family:"UniversLTW02-59UltraCn";
-		src:url("fonts/big_noodle_titling.ttf") format("truetype");
+		src:url("fonts/tt/steelfish_rg.ttf") format("truetype");
 		font-style:normal;
 		font-weight:normal
 	}
 
 #header {
-	width: 100%;
+	width: 89%;
+}
+
+.mailIcon {
+	float: right;
+	width:40px;
+	height: 40px;
 }
 
 .topNews {
@@ -36,7 +52,7 @@ body{
 	background-color: rgba(25,25,25,0.5);
 	font-family: "Times New Roman","Times",serif;
 	font-size: 40px;
-	font-size: 4.0rem;
+	font-size: 3.0rem;
 	font-style: italic;
 	text-transform: uppercase;
 	line-height: 1;
@@ -53,10 +69,13 @@ body{
 	color: white;
 	font-family:UniversLTW02-59UltraCn;
 	margin: 10px 5px 10px 0px;
-	padding: 10px 5px 10px 5px;
+	padding: 0px 10px 10px 10px;
 	font-size: 22px;
+	text-transform: uppercase;
 
 }
+
+
 
 .newsList {
 	text-align: justify;
@@ -88,24 +107,62 @@ body{
 	float:left;
 }
 
-.newsTile .label{
+ .label{
 	display:inline-block;
 	background-color: red;
 	color: white;
 	font-family:UniversLTW02-59UltraCn;
 	margin: 0px;
-	padding: 3px 7px 3px 7px;
+	padding: 0px 7px 8px 7px;
 	font-size: 15px;
 	top:50px;
 	right:0px;
 	position:absolute;
+	text-transform: uppercase;
 }
 
 .placeholder{
 	padding:0;
 }
+
+.wiadomosci{
+	background-color: #09abd1;
+}
+
+.sport{
+	background-color: #ea450a;
+}
+
+.rozrywka{
+	background-color: #bd2d4a;
+}
+
+.stylZycia{
+	background-color: #a92e9c;
+}
+
+.wiedza{
+	background-color: #d70848;
+}
+
+.biznes{
+	background-color: #09a88b;
+}
+
+.moto{
+	background-color: #10912a;
+}
+
+.technologie {
+	background-color: #fc9c00;
+}
+
+.disabledCategory {
+	background-color: silver;
+}
+
 @media (max-width: 800px){
-	.content {
+	.content, #header {
 	 	margin: 0px 30px;
 	}
 
@@ -130,7 +187,7 @@ body{
 /* 2 COL */
 
 @media (max-width: 600px){
-	.content {
+	.content, #header {
 	  	margin: 0px 15px;
 	}
 
@@ -155,7 +212,7 @@ body{
 /* SINGLE COL */
 
 @media (max-width: 400px){
-	.content {
+	.content, #header {
 	  	margin: 0px 5px;
 	}
 

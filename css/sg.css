@@ -10,7 +10,7 @@
 }
 
 .topNews {
-	background-image: url("../img/bigone.jpg");
+	/*background-image: url("../img/bigone.jpg");*/
 	background-size: cover;
     background-repeat: no-repeat;
 	width:100%;
