@@ -3,7 +3,8 @@ define(['app/collections/sg'],function(SgCollection){
 		tagName: 'div',
 		events:{
 			'touchstart #sg': 'onScroll',
-			'click .menuTile': 'categoryOnClick'
+			'click .menuTile': 'categoryOnClick',
+			'click .delete': 'deleteNews'
 			//'click img': 'showDetail
 		},
 		template: _.template($('#index').html()),
@@ -60,6 +61,16 @@ define(['app/collections/sg'],function(SgCollection){
 			}
 
 			localStorage.setItem('mUserCategories', JSON.stringify(userCategories));
+		},
+		deleteNews: function(ev){
+			ev.preventDefault();
+			var parent = ev.target.parentNode.parentNode;
+			$('.newsTitle',$(parent)).remove();
+
+			$(ev.target.parentNode.parentNode).animate( {opacity: 0, width:0
+  			}, 1000, function(){
+  				$(this).remove();
+  			} );
 		}
 	});
 	return IndexView;
