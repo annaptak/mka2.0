@@ -12,8 +12,8 @@ define([],function(){
 		},
 		render: function(){
 			console.log(this.el);
-			//this.$el.html(this.template(this.model.toJSON()));
-			//$('#newsList').append(this.$el);
+			this.$el.html(this.template(this.model.toJSON()));
+			$('#wrapper').append(this.$el);
 		}
 	});
 	return Detail;
