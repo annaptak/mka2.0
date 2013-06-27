@@ -1,28 +1,58 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="application-name" content="Onet.pl"/> 
+        <meta name="msapplication-TileColor" content="#ffffff"/> 
+        <meta name="msapplication-TileImage" content="http://ocdn.eu/images/pulscms/ZmQ7MDA_/a3999790d747fc0b5b0b499285bb62d1.png"/>
+        <meta name="HandheldFriendly" content="true" />
         <link rel="stylesheet" href="css/menu/jquery.sidr.light.css">
         <link rel="stylesheet" href="css/main.css">
-
         <script type="text/javascript" src="scripts/jquery.js"></script>
         <script type="text/javascript" src="scripts/menu/jquery.sidr.min.js"></script>
+        <script type="text/javascript" src="scripts/menu/jquery.wipetouch.js"></script>
         <script type="text/javascript">
             $(document).ready(function() {
                 $('#slideMenu').sidr();
+                $(document).wipetouch({
+                    tapToClick: true,
+                    wipeLeft: function(result) {
+                        $.sidr('close', 'sidr', function() {});
+                    },
+                    wipeRight: function(result) {
+                        $.sidr('open', 'sidr', function() {});
+                    }
+                });
             });
+
         </script>
     </head>
     <body>
         <a id="slideMenu" href="#sidr"></a>
         <div id="sidr">
             <ul>
+                <li><a href="#">Sympatia</a></li>
+                <li><a href="#">Zumi</a></li>
+                <li><a href="#">Gry</a></li>
+                <li><a href="#">Tv</a></li>
+                <li class="active"><a href="#">Kina</a></li>
+                <li><a href="#">Magia</a></li>
+                <li><a href="#">Waluty</a></li>
+                <li><a href="#">Giełda</a></li>
+                <li><a href="#">Wiadomości</a></li>
                 <li><a href="#">Sport</a></li>
-                <li><a href="#">Pogoda</a></li>
+                <li><a href="#">Biznes</a></li>
                 <li><a href="#">Rozrywka</a></li>
-                <li><a href="#">Sport</a></li>
-                <li class="active"><a href="#">Pogoda</a></li>
-                <li><a href="#">Rozrywka</a></li>
+                <li><a href="#">Technologie</a></li>
+                <li><a href="#">Moto</a></li>
+                <li><a href="#">Styl życia</a></li>
+                <li><a href="#">Widza i świat</a></li>
             </ul>
         </div>
     </body>
 </html>
+
+
+
