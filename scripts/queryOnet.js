@@ -72,5 +72,33 @@ var queryOnet = {
         		_callback(null, result);
         	}
         });
-    }
+    },
+
+    getRecommendedBox: function(_detId, _servicePath, _callback) {
+    	var loader = new JSONPLoader();
+			loader.appId = "jsonp.mobile.onetapi.pl";
+			var url="search.newslist.mobile.onetapi.pl";
+			var method="searchMoreLikeThis";
+
+			var params = {
+				'objectType': 'MobileNewsListElement',
+				'id': _detId,
+				'offset': 0,
+				'limit': 6,
+				//'serviceName': 'mobile',
+				'solrOldUrl': false,
+				'servicePath': _servicePath + '*',
+				'qf': 'topics^50',
+				'fl': 'title lead topics'
+			};
+
+			loader.getJSONRPC(url, method, params, function(e, result) {
+	        	if(e){
+	        		_callback("error", null);
+	        	}else{
+	        		//console.log(result.elements);
+	        		_callback(null, result);
+	        	}
+        	});
+	}
 }

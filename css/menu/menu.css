@@ -12,21 +12,22 @@
     display: none;
     width: 100%;
     height: 100%;
+    z-index: 9999;
 }
 
+#menuBtn {
+    text-decoration: none;
+}
+.menuBtnActive {
+    text-decoration: #dedede;
+}
 #slideMenu {
-    background-color: #fff;
-    float: left;
-    background-image: url('../../images/sprite.png');
-    background-repeat: no-repeat;
-    background-position:  -546px 0;
-	width: 33px;
-	height: 33px;
+    display: none;
 }
 #menuContent {
     width: 100%;
     overflow: hidden;
-    height: auto;
+    height: 800px;
 }
     #menuContent div {
         width: 100%;
@@ -35,35 +36,24 @@
         margin-top: 20px;
     }
     
-    #menuContent .p1 {background: #00bfde;}
-    #menuContent .p2 {background: #b72959;}
-    #menuContent .p3 {background: #50baab;}
-    #menuContent .p4 {background: #04a8d0;}
-    #menuContent .p5 {background: #ec6126;}
-    #menuContent .p6 {background: #18826f;}
-    #menuContent .p7 {background: #a92e9c;}
-    #menuContent .p8 {background: #04a8d0;}
-    #menuContent .p9 {background: #04a8d0;}
-    #menuContent .p10 {background: #a92e9c;}
-    #menuContent .p11 {background: #d70848;}
 
-        #menuContent div a {
-            padding-right: 30px;
+        #menuContent div div.item {
+            padding-right: 10px;
             width: auto;
             height: 30px;
             float: left;
             text-align: left;
-            line-height: 31px;
+            line-height: 17px;
             margin-bottom: 20px;
             text-transform:uppercase;
             text-decoration: none;
             font-size: 22px;
             color: #fff;
-            background: #000;
+            /*background: #000;*/
             font-family: 'UniversLTW02-59UltraCn';
             letter-spacing: 2px;
         }
-            #menuContent div a span {
+            #menuContent div div.item span {
                 width: 30px;
                 height: 30px;
                 float: left;
@@ -71,5 +61,5 @@
                 margin-right: 10px;
                 text-align: center;
                 font-size: 30px;
-                line-height: 27px;
+                line-height: 14px;
             }

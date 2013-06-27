@@ -64,6 +64,10 @@ body{
 	text-align: left;
 }
 
+#wrapper {
+	overflow-x: hidden; 
+}
+
 .menuTile {
 	display:inline-block;
 	background-color: red;
@@ -166,6 +170,17 @@ body{
 	background-color: silver;
 }
 
+.menuBtn {
+	background-color: #000;
+	display: none;
+	width:60px;
+}
+.menuBtn span{
+	margin-left: 16px;
+	font-size: 28px;
+	line-height: 0.5;
+}
+
 @media (max-width: 800px){
 	.content, #header {
 	 	margin: 0px 30px;
@@ -225,7 +240,11 @@ body{
 	    margin-bottom: 5%;
 	 }
 
-	 #categories{
+	 .menuTile{
 	  	display: none;
+	 }
+
+	 #menuBtn{
+	 	display:block;
 	 }
 }
