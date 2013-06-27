@@ -168,6 +168,8 @@ body{
 
 .menuBtn {
 	background-color: #000;
+	display: none;
+	width:60px;
 }
 
 @media (max-width: 800px){
@@ -229,7 +231,11 @@ body{
 	    margin-bottom: 5%;
 	 }
 
-	 #categories{
+	 .menuTile{
 	  	display: none;
+	 }
+
+	 #menuBtn{
+	 	display:block;
 	 }
 }
