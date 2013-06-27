@@ -3,13 +3,15 @@ body{
 }
 
 #slideMenu {
-    width: 50px;
-    height: 50px;
     background-color: #fff;
-    text-indent: -999px;
-    overflow: hidden;
     float: left;
+    background-image: url('../images/sprite.png');
+    background-repeat: no-repeat;
+    background-position:  -546px 0;
+	width: 33px;
+	height: 33px;
 }
+
 .content {
 	margin: 0px 70px;
 }
