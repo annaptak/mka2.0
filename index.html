@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="application-name" content="Onet.pl"/> 
-    <link rel="stylesheet" href="css/main.css"></link>
     <meta name="HandheldFriendly" content="true" />
     <title>Onet - wersja mobilna</title>	
 </head>
 <body>
 	<div id="header">
 		<img src="img/logosg.png" />
+		<img src="img/mail.png" class="mailIcon" />
 	</div>
 	<div id="wrapper">
 
@@ -39,6 +39,7 @@
 		</a>
 	</script>
 	<script type="text/template" id="index">
+
 		<div class="slide">
 			<div id="sg" class="content">
 				<div id="topNews">
@@ -64,7 +65,7 @@
 		<div class="slide">
 			<div class="wraper">
 				<div class="detailTop">
-					<img src="http://m.ocdn.eu/_m/b77ff14ddb4d67fea0d27054a97bf3be,31,1,0-52-2000-600-0.jpg" alt="%opis foto" class="mainImage">
+					<img src="<%= meta.image.url %>" alt="%opis foto" class="mainImage">
 					<div class="prevButton"></div><div class="nextButton"></div>
 					<!--<div class="titleOverlay"></div>-->
 					<h1 class="title"><%= meta.title %></h1>
