@@ -23,6 +23,7 @@ define(['app/views/indexview','app/collections/sg', 'app/models/detail'], functi
 			detail: function(_id) {
 				detail = new DetailModel;
 				detail.fetch(_id);
+				
 			}
 		});
 
