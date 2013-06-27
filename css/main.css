@@ -172,6 +172,13 @@ body{
 
 .menuBtn {
 	background-color: #000;
+	display: none;
+	width:60px;
+}
+.menuBtn span{
+	margin-left: 16px;
+	font-size: 28px;
+	line-height: 0.5;
 }
 
 @media (max-width: 800px){
@@ -233,7 +240,11 @@ body{
 	    margin-bottom: 5%;
 	 }
 
-	 #categories{
+	 .menuTile{
 	  	display: none;
+	 }
+
+	 #menuBtn{
+	 	display:block;
 	 }
 }
