@@ -11,13 +11,10 @@ var Menu = {
             $(document).wipetouch({
                 tapToClick: true,
                 wipeLeft: function(result) {
-                    $.sidr('close', 'sidr', function() {
-                    });
+                    Menu.toggle();
                 },
                 wipeRight: function(result) {
-                    $.sidr('open', 'sidr', function() {
-                        $('#menuOverlay').css('display', 'block');
-                    });
+                    Menu.toggle();
                 }
             });
         });
