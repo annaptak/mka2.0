@@ -44,5 +44,20 @@ var queryOnet = {
         		_callback(null, result.elements);
         	}
         });		
-	}
+	},
+
+	getNewsDetail: function(_newsId) {
+		var loader = new JSONPLoader(),
+			url = "query.mobile.onetapi.pl",
+			method = "get",
+        	params= [_newsId];
+
+        loader.appId = "sport.windows.mobile-apps.onetapi.pl";
+
+        loader.getJSONRPC(url, method, params, function(e, result){
+        	if (result !== undefined) {
+				console.log(result);
+         	}
+        });
+    }
 }

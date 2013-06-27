@@ -4,7 +4,8 @@ define(['app/collections/sg'], function(Sg){
 		MkRouter = Backbone.Router.extend({
 			routes:{
 				"": "index",
-				"list": "list"
+				"list": "list",
+				"detail": "detail"
 			},
 
 			index: function(){
@@ -15,6 +16,10 @@ define(['app/collections/sg'], function(Sg){
 
 			list: function(){
 				console.log("list");
+			},
+
+			detail: function() {
+				console.log('detail');
 			}
 		});
 
