@@ -11,9 +11,10 @@ define([],function(){
 			this.render();
 		},
 		render: function(){
-			//console.log(this.el);
+			console.log(this.el);
+			$('body').slideTo(this.template(this.model.toJSON()));
 			this.$el.html(this.template(this.model.toJSON()));
-			$('#wrapper').append(this.$el);
+			//$('#wrapper').append(this.$el);
 		}
 	});
 	return Detail;
