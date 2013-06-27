@@ -17,8 +17,8 @@
 	</div>
 	<div id="wrapper">
 		<div id="sg" class="content">
-			<div class="topNews">
-				<div class="topNewsTitle">Wimbledon: historia tworzy się na naszych oczach</div>
+			<div id="topNews">
+
 			</div>
 			<div class="menuTiles">
 				<div class="menuTile">Wiadomości</div>
@@ -40,9 +40,20 @@
 	<script type="text/template" id="sgDetail">
 		<a href="#detail/<%=id %>">
 			<img src="<%=image %>" />
-			<div class="label"></div>
+			<div class="label"><%= mainTopic %></div>
 			<div class="newsTitle"><%=title %></div>
 		</a>
+	</script>
+	<script type="text/template" id="lead">
+		<a href="#detail/<%=id %>">
+			<div class="topNews" style="background-image:url(<%=image %>)">
+				<div class="topNewsTitle"><%=title %></div>
+			</div>
+		</a>
+	</script>
+
+	<script type="text/template" id="detail">
+		
 	</script>
 </body>
 </html>
