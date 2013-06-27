@@ -4,20 +4,21 @@
 .titleOverlay {
 	width:100%;
 	position:absolute;
-	bottom:0px;
-	background-color: white;
-	height: 4em;
+	bottom:3px;
+	background-color: black;
+	height: 5.5em;
 	opacity:0.4;
 	filter:alpha(opacity=40);
 }
 h1.title{
 	font-family: Time New Roman;
-	font-size: 2em;
+	font-size: 2.2em;
 	font-style: italic;
 	position:absolute;
 	bottom:0px;
 	display:block;
-	margin: 0px 20px 14px 20px;
+	color: #fff;
+	margin: 0px 20px 14px 70px;
 }
 .detailTop{
 	width:100%;
