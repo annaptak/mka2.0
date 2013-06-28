@@ -1,20 +1,41 @@
 <!Doctype HTML>
 <html>
 <head>
-	<script type="text/javascript" src="scripts/jquery.js"></script>
-	<script data-main="scripts/main" src="scripts/require.js"></script>
-	<link rel="stylesheet" href="css/main.css"></link>
-	<link rel="stylesheet" type="text/css" href="css/detal.css">
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="application-name" content="Onet.pl"/> 
+    <meta name="msapplication-TileColor" content="#ffffff"/> 
+    <meta name="msapplication-TileImage" content="http://ocdn.eu/images/pulscms/ZmQ7MDA_/a3999790d747fc0b5b0b499285bb62d1.png"/>
     <meta name="HandheldFriendly" content="true" />
+    
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/detal.css">
+
+    <link rel="stylesheet" href="css/menu/jquery.sidr.light.css">
+    <link rel="stylesheet" href="css/menu/menu.css">
+    <script type="text/javascript" src="scripts/jquery.js"></script>
+    <script data-main="scripts/main" src="scripts/require.js"></script>
     <title>Onet - wersja mobilna</title>	
 </head>
 <body>
+    <div id="menuOverlay"></div>
+    <div><a id="slideMenu" href="#sidr"></a></div>
+    <div id="sidr">
+        <div id="menuContent">
+            <div><div class="item wiadomosci" href="#" category="Wiadomości"><span>&rsaquo;</span>Wiadomości</div></div>
+            <div><div class="item sport" href="#" category="Sport"><span>&rsaquo;</span>Sport</div></div>
+            <div><div class="item biznes" href="#" category="Biznes"><span>&rsaquo;</span>Biznes</div></div>
+            <div><div class="item gadzety" href="#" category="Technologie i gry"><span>&rsaquo;</span>Technologie i gry</div></div>
+            <div><div class="item rozrywka" href="#" category="Rozrywka"><span>&rsaquo;</span>Rozrywka</div></div>
+            <div><div class="item styl-zycia" href="#" category="Styl życia"><span>&rsaquo;</span>Styl życia</div></div>
+            <div><div class="item moto" href="#" category="Moto"><span>&rsaquo;</span>Moto</div></div>
+            <div><div class="item wiedza-swiat" href="#" category="Wiedza i świat"><span>&rsaquo;</span>Wiedza i świat</div></div>
+        </div>
+    </div>
 	<div id="header">
-		<img src="img/logosg.png" />
+		<a href="#"><img src="img/logosg.png" /></a>
 		<img src="img/mail.png" class="mailIcon" />
 	</div>
 	<div id="wrapper">
@@ -28,17 +49,19 @@
 				<img src="<%=image %>" />
 				<div class="label <%= servicePath.split('.')[0] %>"><%=   mainTopic %></div>
 				<div class="newsTitle"><%=title %></div>
+				<div class="delete" ></div>
 			</a>
 		
 	</script>
 	
 	<script type="text/template" id="lead">
 		<a href="#detail/<%=id %>">
-			<div class="topNews" style="background-image:url(<%=image %>)">
+			<div class="topNews" style="background-image:url(<%= image %>)">
 				<div class="topNewsTitle"><%=title %></div>
 			</div>
 		</a>
 	</script>
+    
 	<script type="text/template" id="index">
 
 		<div class="slide">
@@ -46,14 +69,15 @@
 				<div id="topNews">
 				</div>
 				<div class="menuTiles">
-					<div class="menuTile wiadomosci ">Wiadomości</div>
-					<div class="menuTile sport">Sport</div>
-					<div class="menuTile styl-zycia">Styl życia</div>
-					<div class="menuTile biznes disabledCategory">Biznes</div>
-					<div class="menuTile rozrywka">Rozrywka</div>
-					<div class="menuTile gadzety">Technologie i Gry</div>
-					<div class="menuTile moto disabledCategory">Moto</div>
-					<div class="menuTile wiedza-swiat">Wiedza i kultura</div>
+                    <a class="menuTile menuBtn" href="javascript:void(0);" id="menuBtn" onclick="Menu.toggle();">Menu <span>&rsaquo;</span></a> 
+					<div class="menuTile wiadomosci " category="Wiadomości">Wiadomości</div>
+					<div class="menuTile sport" category="Sport">Sport</div>
+					<div class="menuTile styl-zycia" category="Styl życia">Styl życia</div>
+					<div class="menuTile biznes " category="Biznes">Biznes</div>
+					<div class="menuTile rozrywka" category="Rozrywka">Rozrywka</div>
+					<div class="menuTile gadzety" category="Gadżety">Technologie i Gry</div>
+					<div class="menuTile moto " category="Moto">Moto</div>
+					<div class="menuTile wiedza-swiat" category="Wiedza i świat">Wiedza i świat</div>
 				</div>
 				<div id="newsList" class="newsList">
 
@@ -76,15 +100,11 @@
 						<p class="<% if (i === 0) { %>articleFirst<% } else { %>article<% } %>"><%= v.data.text %></p> 
 					<% }); %>
 				</article>
-
 				<aside class="moreArticles">
 					<h2>Więcej na temat</h2>
 					<div id="newsListRec" class="newsList">
 						
 					</div>
-				</aside>
-				<aside class="reklamaRight">
-					<img src="img/reklamaRight.png" />
 				</aside>
 			</div>
 		</div>
@@ -92,17 +112,12 @@
 
 	<script type="text/template" id="recommendedList">
 		<% _.each(rec.elements, function(v, i) { %>
-			<% 
-			if (typeof v.image !== 'undefined' && v.image !== "") { 
-				var id = v.id.replace('#MobileNewsListElement', '');
-			%>
-				<a href="#detail/<%= id %>">
-					<div class="newsTile">
-						<img src="<%= v.image %>" />
-						<div class="label"><%= v.mainTopic %></div>
-						<div class="newsTitle"><%= v.title %></div>
-					</div>
-				</a>
+			<% if (typeof v.image !== 'undefined' && v.image !== "") { %>
+				<div class="newsTile">
+					<img src="<%= v.image %>" />
+					<div class="label"><%= v.mainTopic %></div>
+					<div class="newsTitle"><%= v.title %></div>
+				</div>
 			<% } %>
 		<% }); %>
 		<div class="placeholder">

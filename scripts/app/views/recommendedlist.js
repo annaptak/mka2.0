@@ -11,12 +11,12 @@ define([],function(){
 			this.render();
 		},
 		render: function(){
-			console.log(this.el);
+			//console.log(this.el);
 			this.$el.html(this.template(this.model.toJSON()));
-			//console.log()
-			var that = this;
-			setTimeout(function(){$('#newsListRec').append(that.$el)}, 800)
-			
+			console.log('adsasda');
+			console.log(this.$el);
+
+			$('#newsListRec').append(this.$el);
 		}
 	});
 	return Detail;
