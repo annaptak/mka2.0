@@ -6,7 +6,7 @@ var queryOnet = {
 	*/
 	getAllNews: function(_params, _callback){
 		_params = _params? _params: {};
-		console.log(_params);
+		//console.log(_params);
 		var loader = new JSONPLoader();
         loader.appId = "jsonp.mobile.onetapi.pl";
         var url="search.newslist.mobile.onetapi.pl";

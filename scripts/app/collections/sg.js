@@ -149,7 +149,7 @@ define(['app/models/sgdetail','app/views/sgdetail','app/views/sglead'],function(
 			this.views = newView;
 			/* */
 			this.remove(toRemove);			
-		}
+		},
 	});
 	return Sg;
 });

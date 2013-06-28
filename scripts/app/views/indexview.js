@@ -2,7 +2,6 @@ define(['app/collections/sg'],function(SgCollection){
 	var IndexView = Backbone.View.extend({
 		tagName: 'div',
 		events:{
-			'touchstart #sg': 'onScroll',
 			'click .menuTile': 'categoryOnClick'
 			//'click img': 'showDetail
 		},
@@ -19,6 +18,7 @@ define(['app/collections/sg'],function(SgCollection){
 			this.sg = new SgCollection;
 			this.sg.readyForMore = true;
 			this.sg.fetch();
+			window.list = this.sg;
 			xx = this.sg;
 			var that = this;
 	       	$(window).bind('scroll', function (){
@@ -29,53 +29,70 @@ define(['app/collections/sg'],function(SgCollection){
 	         	}
 	        });	
 
-	        $('.item').click(this.categoryOnClick);	
-
+	        //$('.item').click(this.categoryOnClick);	
+	        this.setDisabledClass();
 		},
 
+		setDisabledClass: function(){
+			var userCategories = JSON.parse(localStorage.getItem('mUserCategories'));
+			var tiles = $('.menuTile');
+			if(userCategories){
+				$.each( tiles, function( k, v) {
+					var inner = v.innerHTML;
+					if(inner.indexOf("Menu") === -1){
+						if(userCategories.indexOf(inner) === -1){
+							$(v).addClass('disabledCategory');
+						}
+					}
+				});
+			}
+		},
 		onScroll: function(){
 			console.log("click");
 		},
 		categoryOnClick: function(ev){
-			var categoryEl = $(ev.target);
-			var disabledClass = 'disabledCategory';
-			var topic = ev.target.innerHTML;
-			var userCategories = JSON.parse(localStorage.getItem('mUserCategories'));
-			var topicToRemove = null;
-			if(userCategories === null){
-				userCategories = ["Moto", "Wiadomości", "Sport", "Biznes", "Wiedza i świat", "Gadżety", "Rozrywka", "Styl życia"];
-			}else{
-				if(userCategories.indexOf(topic) !==  -1){
-					topicToRemove = topic;
+			if(!ev.isTrigger){
+				//console.log(ev);
+				var categoryEl = $(ev.target);
+				var disabledClass = 'disabledCategory';
+				var topic = ev.target.innerHTML;
+				var userCategories = JSON.parse(localStorage.getItem('mUserCategories'));
+				var topicToRemove = null;
+				if(userCategories === null){
+					userCategories = ["Moto", "Wiadomości", "Sport", "Biznes", "Wiedza i świat", "Gadżety", "Rozrywka", "Styl życia"];
 				}
-			}
-			var p = userCategories.length;
-			if(categoryEl.hasClass(disabledClass)){
-				categoryEl.removeClass(disabledClass);
-				userCategories.push(categoryEl.attr('category'));
-			} else {
-				categoryEl.addClass(disabledClass);
-				var tmpCategories = [];
-				for(var i=0; i<userCategories.length;i++){
-					if(categoryEl.attr('category') != userCategories[i]){
-						tmpCategories.push(userCategories[i]);
+				var p = userCategories.length;
+				x = categoryEl;
+				if(categoryEl.hasClass(disabledClass)){
+					categoryEl.removeClass(disabledClass);
+					if(userCategories.indexOf(topic) === -1){
+						if(topic){
+							userCategories.push(topic);
+						}
 					}
-					
+				} else {
+					categoryEl.addClass(disabledClass);
+					var tmpCategories = [];
+					if(userCategories.indexOf(topic) !==  -1){
+						topicToRemove = topic;
+					}										
+					for(var i=0; i<userCategories.length;i++){
+						if(topicToRemove != userCategories[i]){
+							tmpCategories.push(userCategories[i]);
+						}
+						
+					}
+					userCategories = tmpCategories
 				}
-				userCategories = tmpCategories
+				var n = userCategories.length;
+				localStorage.setItem('mUserCategories', JSON.stringify(userCategories));			
+				if(topicToRemove){				
+					this.sg.removeELements(topicToRemove);
+				}else{
+					this.sg.removeAllNews();
+					this.sg.fetch();
+				}				
 			}
-			var n = userCategories.length;
-			console.log(p);
-			console.log(n);
-			console.log(topicToRemove);
-			localStorage.setItem('mUserCategories', JSON.stringify(userCategories));
-			if(topicToRemove){
-				this.sg.removeELements(topicToRemove);
-			}else{
-				this.sg.removeAllNews();
-				this.sg.fetch();
-			}
-
 		}
 	});
 	return IndexView;
