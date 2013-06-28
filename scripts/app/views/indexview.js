@@ -67,6 +67,7 @@ define(['app/collections/sg'],function(SgCollection){
 			var parent = ev.target.parentNode.parentNode;
 			$('.newsTitle',$(parent)).remove();
 
+
 			$(ev.target.parentNode.parentNode).animate( {opacity: 0, width:0
   			}, 1000, function(){
   				$(this).remove();
