@@ -116,12 +116,17 @@
 
 	<script type="text/template" id="recommendedList">
 		<% _.each(rec.elements, function(v, i) { %>
-			<% if (typeof v.image !== 'undefined' && v.image !== "") { %>
-				<div class="newsTile">
-					<img src="<%= v.image %>" />
-					<div class="label"><%= v.mainTopic %></div>
-					<div class="newsTitle"><%= v.title %></div>
-				</div>
+			<% 
+				if (typeof v.image !== 'undefined' && v.image !== "") {
+				var id = v.id.replace('#MobileNewsListElement', ''); 
+			%>
+				<a href="#detail/<%=id %>">
+					<div class="newsTile">
+						<img src="<%= v.image %>" />
+						<div class="label <%= v.servicePath.split('.')[0] %>"><%= v.mainTopic %></div>
+						<div class="newsTitle"><%= v.title %></div>
+					</div>
+				</a>
 			<% } %>
 		<% }); %>
 		<div class="placeholder">
