@@ -15,6 +15,7 @@ define(['app/models/sgdetail','app/views/sgdetail','app/views/sglead'],function(
 //					console.log(result);
 					that.add(that.makeComm(result));
 					that.render();
+                    $('#loader').remove();
 				}
 			});
 		},
