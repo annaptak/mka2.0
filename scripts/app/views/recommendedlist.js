@@ -13,7 +13,13 @@ define([],function(){
 		render: function(){
 			//console.log(this.el);
 			this.$el.html(this.template(this.model.toJSON()));
-			$('#newsListRec').append(this.$el);
+			console.log('adsasda');
+			console.log(this.$el);
+			var that = this;
+			setTimeout(function(){
+				$('#newsListRec').append(that.$el);
+				$('.reklamaRight').show();
+			}, 800);
 		}
 	});
 	return Detail;

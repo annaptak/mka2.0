@@ -6,7 +6,7 @@ var queryOnet = {
 	*/
 	getAllNews: function(_params, _callback){
 		_params = _params? _params: {};
-		console.log(_params);
+		//console.log(_params);
 		var loader = new JSONPLoader();
         loader.appId = "jsonp.mobile.onetapi.pl";
         var url="search.newslist.mobile.onetapi.pl";
@@ -14,6 +14,7 @@ var queryOnet = {
         var offset = _params.offset? _params.offset: 0;
         var limit = _params.limit? _params.limit: 50;
         var topics  = _params.topics? _params.topics: null;
+        var minusTopics  = _params.minusTopics? _params.minusTopics: null;
         var params= {
 			"keys": [
 				"servicePath",
@@ -36,12 +37,14 @@ var queryOnet = {
 				}
 			]
 		};
-
+		if(minusTopics){
+			params.keys.unshift("minusTopics");
+			params.minusTopics = minusTopics;
+		}
 		if(topics){
-			params.keys.push('topics');
+			params.keys.unshift("topics");
 			params.topics = topics;
 		}
-		console.log(params);
         loader.getJSONRPC(url, method, params, function(e, result){
 
         	if(e){

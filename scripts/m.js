@@ -1,3 +1,4 @@
+window.ids = [];
 define(['app/views/indexview','app/collections/sg', 'app/models/detail'], function(IndexView, Sg, DetailModel){
 	$(function(){
 		//start routing
@@ -21,15 +22,19 @@ define(['app/views/indexview','app/collections/sg', 'app/models/detail'], functi
 			},
 
 			detail: function(_id) {
-				detail = new DetailModel;
-				detail.fetch(_id);
-				
-			}
+
+					detail = new DetailModel;
+					detail.fetch(_id);
+
+			},
+			
+
 		});
 
 		//model TODO
 
 		var r = new MkRouter;
 		Backbone.history.start();
+
 	});
 });

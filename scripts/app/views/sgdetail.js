@@ -9,6 +9,12 @@ define([],function(){
 		initialize: function(){
 			//this.listenTo(this.model, "change", this.render);
 			//this.listenTo(this.model, "destroy", this.remove);
+			var that = this;
+			this.model.on('change', function()
+	            {
+	               that.remove();
+	            }
+            );
 			this.render();
 		},
 		render: function(){

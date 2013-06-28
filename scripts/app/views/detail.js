@@ -8,12 +8,24 @@ define([],function(){
 		initialize: function(){
 			//this.listenTo(this.model, "change", this.render);
 			//this.listenTo(this.model, "destroy", this.remove);
+			console.log('Detail View Init');
 			this.render();
 		},
 		render: function(){
 			console.log(this.el);
-			$('body').slideTo(this.template(this.model.toJSON()));
+			console.log('*************************');
+			console.log(window.backVar);
+			console.log(this.model.toJSON()['news']['meta']['identifier'], window.ids);
+			if(window.backVar){
+				$('body').slideFrom(this.template(this.model.toJSON()));
+				window.backVar = false;
+			} else {
+				$('body').slideTo(this.template(this.model.toJSON()));
+			}
+			
 			this.$el.html(this.template(this.model.toJSON()));
+			window.ids.push(this.model.toJSON()['news']['meta']['identifier']);
+			
 			//$('#wrapper').append(this.$el);
 		}
 	});

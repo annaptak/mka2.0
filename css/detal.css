@@ -12,7 +12,7 @@
 }
 h1.title{
 	font-family: Time New Roman;
-	font-size: 1.8em;
+	font-size: 1.2em;
 	font-style: italic;
 	position: absolute;
 	bottom: 0px;
@@ -50,9 +50,37 @@ aside.moreArticles{
 	width:100%;
 	margin-top: 3em;
 	clear:both;
+	padding-bottom: 20px;
 }
+
+
+aside.reklamaRight{
+	width: 320px;
+
+    float:  left;
+    margin-right: 20px;
+    clear:both;
+    display: none;
+
+}
+
 .mainText{
 	margin: 0px 8%;
+}
+.navButton {
+	background-color: rgba(255,255,255,0.4);
+	position: absolute;
+	top: 0px;
+	padding: 9px;
+}
+.navButton:hover {
+	background-color: rgba(255,255,255,0.6);
+}
+#forvardButton{
+	right: 0px;
+}
+#backButton{
+	left: 0px;
 }
 
 aside.moreArticles h2{
@@ -68,9 +96,11 @@ aside.moreArticles h2{
 }
 
 @media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 568px) { 
-
+and (min-width : 420px) 
+{
+	h1.title{
+		font-size: 1.5em;
+	}
 
 }
 
@@ -78,6 +108,7 @@ and (max-device-width : 568px) {
 and (min-width : 768px) { 
 	h1.title{
 		line-height:2em;
+		font-size: 1.8em;
 	}
 	aside.moreArticles{
 		width: 20%;
@@ -109,4 +140,8 @@ and (min-width : 768px) {
 		margin-bottom:0px;
 	}
 
+	aside.reklamaRight{
+		float: right;
+		margin-right: 70px;
+	}
 }
