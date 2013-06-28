@@ -40,7 +40,7 @@ define(['app/models/sgdetail','app/views/sgdetail','app/views/sglead'],function(
             var len = result.length;
             var resultComm = [];
             for ( var i=0;i<len;i++ ) {
-                if ( i % 6 === 0 && resultComm[i]['image'] && i > 0) {
+                if ( i % 6 === 0 && result[i]['image'] && i > 0) {
                     resultComm[i] = {
                         'id' : 'REKLAMA' + Math.random(),
                         'image' : '/images/comm.png',
