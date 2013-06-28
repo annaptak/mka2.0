@@ -1970,4 +1970,27 @@ $.fn.slideTo = function(data) {
     transfer.animate({ 'margin-left': '-' + width + 'px' }, 300, function () {
         $('#wrapper').html(data);
     });
+	setTimeout(function(){
+	$('#backButton').click(function(){
+				console.log('##################################################');
+				window.backVar = true;
+				window.history.back();
+			});},400);
+};
+
+$.fn.slideFrom = function(data) {
+    var width = parseInt($('#wrapper').css('width'));
+    var transfer = $('<div class="transfer"></div>').css({ 'width': (2 * width) + 'px' });
+    var current = $('<div class="current"></div>').css({ 'width': width + 'px', 'left': '0', 'float': 'left' }).html($('#wrapper').html());
+    var next = $('<div class="next"></div>').css({ 'width': width + 'px', 'left': -width + 'px', 'float': 'left' }).html(data);
+    transfer.append(next).append(current);
+    $('#wrapper').html('').append(transfer);
+    transfer.animate({ 'margin-left': '' + width + 'px' }, 300, function () {
+        $('#wrapper').html(data);
+    });
+	$('#backButton').click(function(){
+				console.log('##################################################');
+				window.backVar = true;
+				window.history.back();
+			});
 }

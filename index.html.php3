@@ -71,48 +71,53 @@
 	</script>
 
 	<script type="text/template" id="detail">
-		<div class="slide newHidden">
+		<div class="slide">
 			<div class="wraper">
 				<div class="detailTop">
-					<img src="http://m.ocdn.eu/_m/b77ff14ddb4d67fea0d27054a97bf3be,31,1,0-52-2000-600-0.jpg" alt="%opis foto" class="mainImage">
+					<div id="backButton" class="navButton"><img src="/img/arr_left.png" alt="back"/></div>
+					<div id="forvardButton" class="navButton"><img src="/img/arr_right.png" alt="forward"/></div>
+					<img src="<%= news.meta.image.url %>" alt="%opis foto" class="mainImage">
 					<div class="prevButton"></div><div class="nextButton"></div>
 					<!--<div class="titleOverlay"></div>-->
-					<h1 class="title"><%= meta.title %></h1>
+					<h1 class="title"><%= news.meta.title %></h1>
 				</div>
 				<article class="mainText">
-					<% _.each(manifest.ref_0.content.blocks, function(v, i) { %>
+					<% _.each(news.manifest.ref_0.content.blocks, function(v, i) { %>
 						<p class="<% if (i === 0) { %>articleFirst<% } else { %>article<% } %>"><%= v.data.text %></p> 
 					<% }); %>
 				</article>
 				<aside class="moreArticles">
 					<h2>Więcej na temat</h2>
-					<div class="newsList">
-							<div class="newsTile">
-								<img src="img/newsImg.jpg" />
-								<div class="label">Sport</div>
-								<div class="newsTitle">Wimbledon: historia tworzy się na naszych oczach</div>
-							</div>
-							<div class="newsTile">
-								<img src="img/newsImg.jpg" />
-								<div class="label">Wiadomości</div>
-								<div class="newsTitle">Wimbledon: historia tworzy się na naszych oczach</div>
-							</div>
-							<div class="newsTile">
-								<img src="img/newsImg.jpg" />
-								<div class="label">Styl życia</div>
-								<div class="newsTitle">Wimbledon: historia tworzy się na naszych oczach</div>
-							</div>
-							<div class="newsTile">
-								<img src="img/newsImg.jpg" />
-								<div class="label">Styl życia</div>
-								<div class="newsTitle">Wimbledon: historia tworzy się na naszych oczach</div>
-							</div>
-							<div class="placeholder">
-							</div>
-						</div>
+					<div id="newsListRec" class="newsList">
+						
+					</div>
 				</aside>
+				<aside class="reklamaRight">
+					<img src="img/reklamaRight.png" />
+				</aside>
+
 			</div>
 		</div>
 	</script>
+
+	<script type="text/template" id="recommendedList">
+		<% _.each(rec.elements, function(v, i) { %>
+			<% 
+				if (typeof v.image !== 'undefined' && v.image !== "") {
+				var id = v.id.replace('#MobileNewsListElement', ''); 
+			%>
+				<a href="#detail/<%=id %>">
+					<div class="newsTile">
+						<img src="<%= v.image %>" />
+						<div class="label <%= v.servicePath.split('.')[0] %>"><%= v.mainTopic %></div>
+						<div class="newsTitle"><%= v.title %></div>
+					</div>
+				</a>
+			<% } %>
+		<% }); %>
+		<div class="placeholder">
+		</div>
+	</script>
+
 </body>
 </html>

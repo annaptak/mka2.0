@@ -1,5 +1,6 @@
 .mainImage {
 	width:100%;
+	max-width:700px;
 }
 .titleOverlay {
 	width:100%;
@@ -64,6 +65,21 @@ aside.reklamaRight{
 
 .mainText{
 	margin: 0px 8%;
+}
+.navButton {
+	background-color: rgba(255,255,255,0.4);
+	position: absolute;
+	top: 0px;
+	padding: 9px;
+}
+.navButton:hover {
+	background-color: rgba(255,255,255,0.6);
+}
+#forvardButton{
+	right: 0px;
+}
+#backButton{
+	left: 0px;
 }
 
 aside.moreArticles h2{
