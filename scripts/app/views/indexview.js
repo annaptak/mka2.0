@@ -31,7 +31,7 @@ define(['app/collections/sg'],function(SgCollection){
 	         	}
 	        });	
 
-	        //$('.item').click(this.categoryOnClick);	
+	        $('.item').click(this.categoryOnClick);	
 	        this.setDisabledClass();
 		},
 
