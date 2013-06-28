@@ -10,13 +10,14 @@ define(['app/views/detail', 'app/views/recommendedlist'], function(DetailView, R
 				if (err === null) {
 					console.log(result);
 
-					result.meta.image.url = new ResizeImg(result.meta.image.url, 150, 50).getUrl();
+					result.meta.image.url = new ResizeImg(result.meta.image.url, 112, 96).getUrl();
 					that.set({'news': result});
 					that.render();
 
 					queryOnet.getRecommendedBox(_id, result.meta.rel.canonical.path, function(errRec, resultRec) {
 						if (errRec === null) {
 							that.set({'rec': resultRec});
+							console.log(resultRec);
 							that.renderRecommendedList();
 						}
 					});
