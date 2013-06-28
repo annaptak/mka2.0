@@ -16,7 +16,10 @@ define([],function(){
 			console.log('adsasda');
 			console.log(this.$el);
 			var that = this;
-			setTimeout(function(){$('#newsListRec').append(that.$el)}, 800);
+			setTimeout(function(){
+				$('#newsListRec').append(that.$el);
+				$('.reklamaRight').show();
+			}, 800);
 		}
 	});
 	return Detail;

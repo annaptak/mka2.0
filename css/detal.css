@@ -50,6 +50,7 @@ aside.moreArticles{
 	width:100%;
 	margin-top: 3em;
 	clear:both;
+	padding-bottom: 20px;
 }
 
 
@@ -59,6 +60,7 @@ aside.reklamaRight{
     float:  left;
     margin-right: 20px;
     clear:both;
+    display: none;
 
 }
 
