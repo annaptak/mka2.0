@@ -41,11 +41,12 @@ define(['app/models/sgdetail','app/views/sgdetail','app/views/sglead'],function(
 					console.log(element.get('topics'));
 					var id = element.get('id');
 					id = id.replace('#NewsListElement','');
-					if(first){
-						//console.log(id);
-						element.set({
+					element.set({
 							id: id
 						});
+					if(first){
+						//console.log(id);
+						
 						//console.log(element.get('image'));
 						var view = new SgDetailView({model: element});
 					}else{
