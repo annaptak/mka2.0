@@ -12,13 +12,31 @@ define(['app/models/sgdetail','app/views/sgdetail','app/views/sglead'],function(
 	        	]
 			}, function(err, result){
 				if(result){
-//					console.log(result);
+                    result = that.makeComm(result);
 					that.add(result);
 					that.render();
 				}
 			});
 		},
-
+        makeComm : function(result) {
+            var len = result.length;
+            var resultComm = [];
+            for ( var i=0;i<len;i++ ) {
+                if ( i % 6 === 0 && i > 0) {
+                    resultComm[i] = {
+                        'id' : 'REKLAMA' + Math.random(),
+                        'image' : '/images/comm.png',
+                        'title' : 'REKLAMA',
+                        'mainTopic' : 'REKLAMA',
+                        'lead' : 'REKLAMA',
+                        'servicePath' : 'REKLAMA'
+                    };
+                } else {
+                    resultComm[i] = result[i];
+                }
+            }
+            return resultComm;
+        },
 		fetchMore: function(){
 			var that = this;
 			this.readyForMore = false;
@@ -26,7 +44,7 @@ define(['app/models/sgdetail','app/views/sgdetail','app/views/sglead'],function(
 				offset: this.page *50
 			}, function(err, result){
 				if(result){
-//					console.log(result);
+                    result = that.makeComm(result);
 					that.add(result);
 					that.renderMore();
 				}
@@ -62,6 +80,7 @@ define(['app/models/sgdetail','app/views/sgdetail','app/views/sglead'],function(
 		renderMore: function(){
 
 			for(var i = this.page*50; i < this.models.length; i++){
+                
 				if(this.models[i].get('image')){
 					var id = this.models[i].get('id');
 					id = id.replace('#NewsListElement','');

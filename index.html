@@ -44,14 +44,20 @@
 	</div>	
 
 	<script type="text/template" id="sgDetail">
-		
-			<a href="#detail/<%=id %>">
+		<% if (title == 'REKLAMA') { %>
+            <a href="#detail/<%=id %>">
+				<img src="<%=image %>" alt="<%=id %>" />
+				<div class="label"><%=  mainTopic %></div>
+				<div class="newsTitle">&nbsp</div>
+			</a>
+        <% } else { %>
+            <a href="#detail/<%=id %>">
 				<img src="<%=image %>" />
 				<div class="label <%= servicePath.split('.')[0] %>"><%=   mainTopic %></div>
 				<div class="newsTitle"><%=title %></div>
 				<div class="delete" ></div>
 			</a>
-		
+        <% } %>
 	</script>
 	
 	<script type="text/template" id="lead">
