@@ -27,8 +27,6 @@
 }
 #menuContent {
     width: 100%;
-    overflow: hidden;
-    height: 800px;
 }
     #menuContent div {
         width: 100%;
