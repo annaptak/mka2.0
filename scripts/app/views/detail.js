@@ -9,6 +9,7 @@ define([],function(){
 			//this.listenTo(this.model, "change", this.render);
 			//this.listenTo(this.model, "destroy", this.remove);
 			console.log('Detail View Init');
+            $('#loader').remove();
 			this.render();
 		},
 		render: function(){
