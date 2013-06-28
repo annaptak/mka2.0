@@ -10,7 +10,7 @@ define(['app/views/detail', 'app/views/recommendedlist'], function(DetailView, R
 				if (err === null) {
 					console.log(result);
 
-					result.meta.image.url = new ResizeImg(result.meta.image.url, 350, 100).getUrl();
+					result.meta.image.url = new ResizeImg(result.meta.image.url, 250, 70).getUrl();
 					that.set({'news': result});
 					that.render();
 

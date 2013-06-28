@@ -125,6 +125,6 @@ and (min-width : 768px) {
 
 	aside.reklamaRight{
 		float: right;
+		margin-right: 70px;
 	}
-
 }
