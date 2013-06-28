@@ -47,7 +47,8 @@ define(['app/models/sgdetail','app/views/sgdetail','app/views/sglead'],function(
                         'title' : 'REKLAMA',
                         'mainTopic' : 'REKLAMA',
                         'lead' : 'REKLAMA',
-                        'servicePath' : 'REKLAMA'
+                        'servicePath' : 'REKLAMA',
+                        'topics' : new Array()
                     };
                 } else {
                     resultComm[i] = result[i];
