@@ -2,7 +2,9 @@ define(['app/collections/sg'],function(SgCollection){
 	var IndexView = Backbone.View.extend({
 		tagName: 'div',
 		events:{
-			'click .menuTile': 'categoryOnClick'
+			'touchstart #sg': 'onScroll',
+			'click .menuTile': 'categoryOnClick',
+			'click .delete': 'deleteNews'
 			//'click img': 'showDetail
 		},
 		template: _.template($('#index').html()),
@@ -93,6 +95,16 @@ define(['app/collections/sg'],function(SgCollection){
 					this.sg.fetch();
 				}				
 			}
+		},
+		deleteNews: function(ev){
+			ev.preventDefault();
+			var parent = ev.target.parentNode.parentNode;
+			$('.newsTitle',$(parent)).remove();
+
+			$(ev.target.parentNode.parentNode).animate( {opacity: 0, width:0
+  			}, 1000, function(){
+  				$(this).remove();
+  			} );
 		}
 	});
 	return IndexView;

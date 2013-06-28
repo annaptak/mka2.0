@@ -49,13 +49,14 @@
 				<img src="<%=image %>" />
 				<div class="label <%= servicePath.split('.')[0] %>"><%=   mainTopic %></div>
 				<div class="newsTitle"><%=title %></div>
+				<div class="delete" ></div>
 			</a>
 		
 	</script>
 	
 	<script type="text/template" id="lead">
 		<a href="#detail/<%=id %>">
-			<div class="topNews" style="background-image:url(<%=image %>)">
+			<div class="topNews" style="background-image:url(<%= image %>)">
 				<div class="topNewsTitle"><%=title %></div>
 			</div>
 		</a>
@@ -105,6 +106,10 @@
 						
 					</div>
 				</aside>
+				<aside class="reklamaRight">
+					<img src="img/reklamaRight.png" />
+				</aside>
+
 			</div>
 		</div>
 	</script>

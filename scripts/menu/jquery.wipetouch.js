@@ -28,7 +28,15 @@
 // More details at http://wipetouch.codeplex.com/
 //
 // CHANGE LOG
-// ------------------------------------------------------------------------
+// -----------------------------------------------------------------------
+//
+// Forked by Andrew Bartel, web developer for Deus Machine LLC
+// - By default, wipe touch captures all events.  So for example, if you zoom in on a picture on a mobile device, you cannot zoom out, as wipetouch
+// captures and overrides the command.  So, I added a check to see if someone is using two fingers to onTouchEnd() and onTouchMove() as well as an
+// if useMouseEvents() check in onTouchStart().  This preserves the functionality of allowing a user to use a mouse to duplicate the swipe functionality
+// but also allows them to zoom out or in or an element that has wipe touch enabled on a touch screen.
+//
+//
 // 1.2.0
 // - New: wipeMove event, triggered while moving the mouse/finger.
 // - New: added "source" to the result object.
@@ -119,7 +127,7 @@
 				{
 					if (config.preventDefault)
 					{
-						e.preventDefault();
+						if(useMouseEvents) e.preventDefault();
 					}
 
 					// Temporary fix for deprecated events, these will be removed on next version!
@@ -176,7 +184,7 @@
 			// Called when user untouches the screen.
 			function onTouchEnd(e)
 			{
-				if (config.preventDefault)
+				if(useMouseEvents || config.preventDefault && e.originalEvent.touches.length !== 2)
 				{
 					e.preventDefault();
 				}
@@ -205,7 +213,7 @@
 			// Called when user is touching and moving on the screen.
 			function onTouchMove(e)
 			{
-				if (config.preventDefault)
+				if(useMouseEvents || config.preventDefault && e.originalEvent.touches.length !== 2)
 				{
 					e.preventDefault();
 				}

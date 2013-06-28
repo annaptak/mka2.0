@@ -9,8 +9,9 @@ var Menu = {
             $('#menuOverlay').click(function() {
                 Menu.toggle();
             });
-            $(document).wipetouch({
-                tapToClick: true,
+            $(window).wipetouch({
+                preventDefault: false, 
+                tapToClick: false,
                 wipeLeft: function(result) {
                     $.sidr('close', 'sidr', function() {
                         $('#menuOverlay').css('display', 'none');
@@ -25,12 +26,6 @@ var Menu = {
                     });
                 }
             });
-//            $('#menuBtn').attr('onclick', 'alert("dupa")');
-////            console.log();
-//            $('#menuBtn').click(function() {
-//                alert('test');
-////                
-//            });
         });
     },
     toggle: function() {

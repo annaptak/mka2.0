@@ -63,3 +63,53 @@
                 font-size: 30px;
                 line-height: 14px;
             }
+            
+            
+            
+            
+            #obrazek {
+                -webkit-transform:rotateX(0deg);
+                -moz-transform:rotateX(0deg);
+                -ms-transform:rotateX(0deg);
+                transform:rotateX(0deg);
+            }
+            
+            .animate {
+                animation: myfirst 2s;
+                -webkit-animation: myfirst 2s;
+            }
+            
+            
+            
+            
+            @keyframes myfirst
+            {
+                0%   {
+                    -webkit-transform:rotateX(70deg);
+                    -moz-transform:rotateX(70deg);
+                    -ms-transform:rotateX(70deg);
+                    transform:rotateX(70deg);
+                }
+                100% {
+                    -webkit-transform:rotateX(0deg);
+                    -moz-transform:rotateX(0deg);
+                    -ms-transform:rotateX(0deg);
+                    transform:rotateX(0deg);
+                }
+            }
+
+            @-webkit-keyframes myfirst /* Safari and Chrome */
+            {
+                0%   {
+                    -webkit-transform:rotateX(70deg);
+                    -moz-transform:rotateX(70deg);
+                    -ms-transform:rotateX(70deg);
+                    transform:rotateX(70deg);
+                }
+                100% {
+                    -webkit-transform:rotateX(00deg);
+                    -moz-transform:rotateX(0deg);
+                    -ms-transform:rotateX(0deg);
+                    transform:rotateX(0deg);
+                }
+            }
