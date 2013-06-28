@@ -12,7 +12,7 @@
 }
 h1.title{
 	font-family: Time New Roman;
-	font-size: 1.8em;
+	font-size: 1.2em;
 	font-style: italic;
 	position: absolute;
 	bottom: 0px;
@@ -51,6 +51,17 @@ aside.moreArticles{
 	margin-top: 3em;
 	clear:both;
 }
+
+
+aside.reklamaRight{
+	width: 320px;
+
+    float:  left;
+    margin-right: 20px;
+    clear:both;
+
+}
+
 .mainText{
 	margin: 0px 8%;
 }
@@ -68,9 +79,11 @@ aside.moreArticles h2{
 }
 
 @media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 568px) { 
-
+and (min-width : 420px) 
+{
+	h1.title{
+		font-size: 1.5em;
+	}
 
 }
 
@@ -78,6 +91,7 @@ and (max-device-width : 568px) {
 and (min-width : 768px) { 
 	h1.title{
 		line-height:2em;
+		font-size: 1.8em;
 	}
 	aside.moreArticles{
 		width: 20%;
@@ -107,6 +121,10 @@ and (min-width : 768px) {
 	aside.moreArticles h2{
 		margin-left:0px;
 		margin-bottom:0px;
+	}
+
+	aside.reklamaRight{
+		float: right;
 	}
 
 }

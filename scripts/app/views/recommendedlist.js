@@ -15,8 +15,8 @@ define([],function(){
 			this.$el.html(this.template(this.model.toJSON()));
 			console.log('adsasda');
 			console.log(this.$el);
-
-			$('#newsListRec').append(this.$el);
+			var that = this;
+			setTimeout(function(){$('#newsListRec').append(that.$el)}, 800);
 		}
 	});
 	return Detail;
