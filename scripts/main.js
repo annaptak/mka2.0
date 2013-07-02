@@ -1,19 +1,19 @@
 requirejs.config({
 	  paths: {
 //	    jQuery: 'jquery',
-	    sidr: '/scripts/menu/jquery.sidr.min',
-	    wipetouch: '/scripts/menu/jquery.wipetouch',
-	    iscroll: '/scripts/iscroll',
-	    Menu: '/scripts/menu/Menu',
-	    Underscore: '/scripts/underscore',
-	    Backbone: '/scripts//backbone',
-	    JSONPLoader: '/scripts/JSONPLoader',
-	    Swipe: './jquery.swipe',
-	    queryOnet: '/scripts/queryOnet',
-	    CryptoJS: '/scripts/utils/md5',
-	    StrBuf: '/scripts/utils/buffer',
-	    Base64: '/scripts/utils/base64',
-	    resizeImg: '/scripts/utils/resizeImg'
+	    sidr: 'menu/jquery.sidr.min',
+	    wipetouch: 'menu/jquery.wipetouch',
+	    iscroll: 'iscroll',
+	    Menu: 'menu/Menu',
+	    Underscore: 'underscore',
+	    Backbone: 'backbone',
+	    JSONPLoader: 'JSONPLoader',
+	    Swipe: 'jquery.swipe',
+	    queryOnet: 'queryOnet',
+	    CryptoJS: 'utils/md5',
+	    StrBuf: 'utils/buffer',
+	    Base64: 'utils/base64',
+	    resizeImg: 'utils/resizeImg'
 	  },	
 		shim: {
 			'Backbone': [

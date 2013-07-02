@@ -50,13 +50,16 @@ var queryOnet = {
         	if(e){
         		_callback("error", null);
         	}else{
-        		//console.log(result.elements);
+        		for (i=0;i<result.elements.length;i++) {
+					result.elements[i].id = result.elements[i].id.split('$')[0];
+				}				
         		_callback(null, result.elements);
         	}
         });		
 	},
 
 	getNewsDetail: function(_newsId, _callback) {
+		_newsId = _newsId.split('$')[0];
 		var loader = new JSONPLoader(),
 			url = "query.mobile.onetapi.pl",
 			method = "get",
