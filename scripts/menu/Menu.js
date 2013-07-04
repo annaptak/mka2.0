@@ -9,7 +9,7 @@ var Menu = {
             $('#menuOverlay').click(function() {
                 Menu.toggle();
             });
-            $(window).wipetouch({
+            /*$(window).wipetouch({
                 preventDefault: false, 
                 tapToClick: false,
                 wipeLeft: function(result) {
@@ -25,7 +25,7 @@ var Menu = {
                         }
                     });
                 }
-            });
+            });*/
         });
     },
     toggle: function() {
