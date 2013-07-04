@@ -2,11 +2,9 @@ define(['app/collections/sg'],function(SgCollection){
 	var IndexView = Backbone.View.extend({
 		tagName: 'div',
 		events:{
-			'touchstart #sg': 'onScroll',
 			'click .menuTile': 'categoryOnClick',
-			'click .delete': 'deleteNews'
-//			'click .item': 'categoryOnClick'
-			//'click img': 'showDetail
+			'click .delete': 'deleteNews',
+			'swipe' : 'swipe'
 		},
 		template: _.template($('#index').html()),
 		initialize: function(){
@@ -36,6 +34,10 @@ define(['app/collections/sg'],function(SgCollection){
 	        $('.item').click(this.categoryOnClick);	
 	        this.setDisabledClass();
 		},
+		
+		swipe : function() {
+			console.log("you swiped it!");
+		},
 
 		setDisabledClass: function(){
 			var userCategories = JSON.parse(localStorage.getItem('mUserCategories'));
@@ -60,9 +62,6 @@ define(['app/collections/sg'],function(SgCollection){
 					}
 				});				
 			}
-		},
-		onScroll: function(){
-			console.log("click");
 		},
 		categoryOnClick: function(ev){
 			//console.log(ev);

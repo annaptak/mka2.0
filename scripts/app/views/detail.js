@@ -2,7 +2,8 @@ define([],function(){
 	var Detail = Backbone.View.extend({
 		tagName: 'div',
 		events:{
-			
+			'touchstart #sg': 'onScroll',
+			'swipe' : 'backHome'
 		},
 		template: _.template($('#detail').html()),
 		initialize: function(){
@@ -15,7 +16,6 @@ define([],function(){
 		render: function(){
 			console.log(this.el);
 			console.log('*************************');
-			console.log(window.backVar);
 			console.log(this.model.toJSON()['news']['meta']['identifier'], window.ids);
 			if(window.backVar){
 				$('body').slideFrom(this.template(this.model.toJSON()));
@@ -28,7 +28,16 @@ define([],function(){
 			window.ids.push(this.model.toJSON()['news']['meta']['identifier']);
 			
 			//$('#wrapper').append(this.$el);
-		}
+		},
+		
+		backHome: function() {
+			console.log("Swiping in detailview");
+		},
+		
+		onScroll: function(){
+			console.log("click");
+		},
+		
 	});
 	return Detail;
 })
