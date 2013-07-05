@@ -4,7 +4,8 @@ define(['app/collections/sg'],function(SgCollection){
 		events:{
 			'click .menuTile': 'categoryOnClick',
 			'click .delete': 'deleteNews',
-			'swipe' : 'swipe'
+			'swipe' : 'swipe',
+			'swipeUp' : 'loadMore'
 		},
 		template: _.template($('#index').html()),
 		initialize: function(){
@@ -22,14 +23,6 @@ define(['app/collections/sg'],function(SgCollection){
 			window.list = this.sg;
 			window.indexview = this;
 			xx = this.sg;
-			var that = this;
-	       	$(window).bind('scroll', function (){
-	            var current = $('body').scrollTop();
-	            var height = $('body').height();
-	         	if(current*2 > height && that.sg.readyForMore){
-	         		that.sg.fetchMore();
-	         	}
-	        });	
 
 	        $('.item').click(this.categoryOnClick);	
 	        this.setDisabledClass();
@@ -37,6 +30,15 @@ define(['app/collections/sg'],function(SgCollection){
 		
 		swipe : function() {
 			console.log("you swiped it!");
+		},
+		
+		loadMore : function() {
+			var that = this;
+			var current = $('body').scrollTop();
+	            var height = $('body').height();
+	         	if(current*2 > height && that.sg.readyForMore){
+	         		that.sg.fetchMore();
+	         	}
 		},
 
 		setDisabledClass: function(){
