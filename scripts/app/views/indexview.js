@@ -39,7 +39,7 @@ define(['app/collections/sg'],function(SgCollection){
 			queryOnet.getAllNews(params, function(err, result){
 				if(result){
 					console.log("URL:" + result[0].id);
-					
+					currentArticleId = 0;
 					window.location.href = '#detail/' + result[0].id ;
 				}
 			});

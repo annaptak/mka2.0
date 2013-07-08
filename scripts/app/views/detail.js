@@ -4,24 +4,50 @@ define([],function(){
 		template: _.template($('#detail').html()),
 		
 		initialize: function(){
-			//this.listenTo(this.model, "change", this.render);
-			//this.listenTo(this.model, "destroy", this.remove);
 			console.log('Detail View Init');
             $('#loader').remove();
 			$('#wrapper').live('swipeRight', function(event) {
-			console.log("swiped right");
-				window.history.back();
+				if (typeof currentArticleId != 'undefined') {
+					window.location.href = "#";
+				}
+				else {
+					currentArticleId -= 1;
+					console.log("swiped right to: " + currentArticleId);
+					if (currentArticleId == 0 ) {
+						window.location.href = "#";
+					}
+					else {
+						var that = this;
+						this.views = [];
+						var params = {};
+						
+						queryOnet.getAllNews(params, function(err, result){
+							if(result){
+								window.location.href = '#detail/' + result[currentArticleId].id ;
+							}
+						});
+					}					
+				}
 				return false;
 			});	
 			$('#wrapper').live('swipeLeft', function(event) {
-				console.log("swiped left");
+				if (typeof currentArticleId != 'undefined') {}
+				else {
+					currentArticleId += 1;
+					console.log("swiped left to: " + currentArticleId);
+					var that = this;
+					this.views = [];
+					var params = {};
+					
+					queryOnet.getAllNews(params, function(err, result){
+						if(result){
+							window.location.href = '#detail/' + result[currentArticleId].id ;
+						}
+					});				
+				}
 				return false;
 			});	
 			this.render();
-		},
-		
-		rememberId: function(articleId) {
-			console.log("Article ID:" + articleId);
 		},
 		
 		render: function(){
@@ -38,7 +64,22 @@ define([],function(){
 			window.ids.push(this.model.toJSON()['news']['meta']['identifier']);
 			
 			$('#wrapper').append(this.$el);
-		}
+		},
+		
+		"localParams": function(){
+			var topicsLocal = JSON.parse(localStorage.getItem('mUserCategories'));
+			var topics = null;
+			if(topicsLocal){
+				topics = [];
+				for(var i=0; i < topicsLocal.length; i++){
+					topics.push({
+						"name": topicsLocal[i],
+						"priority": 1
+					});
+				}
+			}
+			return topics;
+		},
 		
 	});
 	return Detail;
