@@ -36,6 +36,7 @@ define(['app/models/sgdetail','app/views/sgdetail','app/views/sglead'],function(
 				}
 			});
 		},
+		
         makeComm : function(result) {
             var len = result.length;
             var resultComm = [];

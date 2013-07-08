@@ -9,10 +9,19 @@ define([],function(){
 			console.log('Detail View Init');
             $('#loader').remove();
 			$('#wrapper').live('swipeRight', function(event) {
+			console.log("swiped right");
 				window.history.back();
 				return false;
 			});	
+			$('#wrapper').live('swipeLeft', function(event) {
+				console.log("swiped left");
+				return false;
+			});	
 			this.render();
+		},
+		
+		rememberId: function(articleId) {
+			console.log("Article ID:" + articleId);
 		},
 		
 		render: function(){
@@ -29,7 +38,7 @@ define([],function(){
 			window.ids.push(this.model.toJSON()['news']['meta']['identifier']);
 			
 			$('#wrapper').append(this.$el);
-		},
+		}
 		
 	});
 	return Detail;

@@ -13,7 +13,6 @@ define([],function(){
 		render: function(){
 			//console.log(this.el);
 			this.$el.html(this.template(this.model.toJSON()));
-			console.log('adsasda');
 			console.log(this.$el);
 			var that = this;
 			setTimeout(function(){

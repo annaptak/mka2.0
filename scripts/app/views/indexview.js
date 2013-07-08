@@ -4,7 +4,7 @@ define(['app/collections/sg'],function(SgCollection){
 		events:{
 			'click .menuTile': 'categoryOnClick',
 			'click .delete': 'deleteNews',
-			'swipe' : 'swipe',
+			'swipeLeft' : 'firstArticle',
 			'swipeUp' : 'loadMore'
 		},
 		template: _.template($('#index').html()),
@@ -28,8 +28,21 @@ define(['app/collections/sg'],function(SgCollection){
 	        this.setDisabledClass();
 		},
 		
-		swipe : function() {
-			console.log("you swiped it!");
+		firstArticle : function() {
+			var that = this;
+			this.views = [];
+			var params = {};
+			var topicsLocal = this.localParams();
+			if(topicsLocal && topicsLocal.length && topicsLocal.length > 0){
+				params.topics = topicsLocal;
+			}
+			queryOnet.getAllNews(params, function(err, result){
+				if(result){
+					console.log("URL:" + result[0].id);
+					
+					window.location.href = '#detail/' + result[0].id ;
+				}
+			});
 		},
 		
 		loadMore : function() {
@@ -112,6 +125,22 @@ define(['app/collections/sg'],function(SgCollection){
 				indexview.setDisabledClass();				
 			}
 		},
+		
+		"localParams": function(){
+			var topicsLocal = JSON.parse(localStorage.getItem('mUserCategories'));
+			var topics = null;
+			if(topicsLocal){
+				topics = [];
+				for(var i=0; i < topicsLocal.length; i++){
+					topics.push({
+						"name": topicsLocal[i],
+						"priority": 1
+					});
+				}
+			}
+			return topics;
+		},
+		
 		deleteNews: function(ev){
 			ev.preventDefault();
 			var parent = ev.target.parentNode.parentNode;
