@@ -1,52 +1,20 @@
 define([],function(){
 	var Detail = Backbone.View.extend({
+	
+		el: 'body',
+		
+		events:{
+			'swipeRight' : 'previousArticle',
+			'swipeLeft' : 'nextArticle'
+		},
 		
 		template: _.template($('#detail').html()),
 		
 		initialize: function(){
 			console.log('Detail View Init');
+			currentArticleId = 0;
+			console.log(currentArticleId);
             $('#loader').remove();
-			$('#wrapper').live('swipeRight', function(event) {
-				if (typeof currentArticleId != 'undefined') {
-					window.location.href = "#";
-				}
-				else {
-					currentArticleId -= 1;
-					console.log("swiped right to: " + currentArticleId);
-					if (currentArticleId == 0 ) {
-						window.location.href = "#";
-					}
-					else {
-						var that = this;
-						this.views = [];
-						var params = {};
-						
-						queryOnet.getAllNews(params, function(err, result){
-							if(result){
-								window.location.href = '#detail/' + result[currentArticleId].id ;
-							}
-						});
-					}					
-				}
-				return false;
-			});	
-			$('#wrapper').live('swipeLeft', function(event) {
-				if (typeof currentArticleId != 'undefined') {}
-				else {
-					currentArticleId += 1;
-					console.log("swiped left to: " + currentArticleId);
-					var that = this;
-					this.views = [];
-					var params = {};
-					
-					queryOnet.getAllNews(params, function(err, result){
-						if(result){
-							window.location.href = '#detail/' + result[currentArticleId].id ;
-						}
-					});				
-				}
-				return false;
-			});	
 			this.render();
 		},
 		
@@ -66,6 +34,39 @@ define([],function(){
 			$('#wrapper').append(this.$el);
 		},
 		
+		previousArticle: function() {
+			console.log("Going to previous article");
+			currentArticleId -= 1;
+			if (currentArticleId == 0 ) {
+				window.location.href = "#";
+			}
+			else {
+				var that = this;
+				this.views = [];
+				var params = {};
+				queryOnet.getAllNews(params, function(err, result){
+					if(result){
+					console.log(currentArticleId);
+					console.log(result);
+						window.location.href = '#detail/' + result[currentArticleId].id ;
+					}
+				});
+			}					
+		},
+		
+		nextArticle: function() {
+			console.log("Going to next article");
+			currentArticleId += 1;
+			var that = this;
+			this.views = [];
+			var params = {};
+			queryOnet.getAllNews(params, function(err, result){
+				if(result){
+					window.location.href = '#detail/' + result[currentArticleId].id ;
+				}
+			});				
+		},
+		
 		"localParams": function(){
 			var topicsLocal = JSON.parse(localStorage.getItem('mUserCategories'));
 			var topics = null;
@@ -79,7 +80,7 @@ define([],function(){
 				}
 			}
 			return topics;
-		},
+		}
 		
 	});
 	return Detail;

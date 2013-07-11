@@ -9,8 +9,6 @@ define(['app/collections/sg'],function(SgCollection){
 		},
 		template: _.template($('#index').html()),
 		initialize: function(){
-			//this.listenTo(this.model, "change", this.render);
-			//this.listenTo(this.model, "destroy", this.remove);
 			this.render();
 		},
 		render: function(){
@@ -38,11 +36,9 @@ define(['app/collections/sg'],function(SgCollection){
 			}
 			queryOnet.getAllNews(params, function(err, result){
 				if(result){
-					console.log("URL:" + result[0].id);
-					currentArticleId = 0;
 					window.location.href = '#detail/' + result[0].id ;
 				}
-			});
+			});			
 		},
 		
 		loadMore : function() {
@@ -79,9 +75,7 @@ define(['app/collections/sg'],function(SgCollection){
 			}
 		},
 		categoryOnClick: function(ev){
-			//console.log(ev);
 			if(!ev.isTrigger && !$(ev.target).hasClass('menuBtn')){
-				//console.log(ev);
 				var categoryEl = $(ev.target);
 				var disabledClass = 'disabledCategory';
 				var topic = ev.target.getAttribute('category');
