@@ -36,7 +36,7 @@ define(['app/collections/sg'],function(SgCollection){
 			}
 			queryOnet.getAllNews(params, function(err, result){
 				if(result){
-					window.location.href = '#detail/' + result[0].id ;
+					console.log("Next location:  #detail/" + result[0].id);
 				}
 			});			
 		},

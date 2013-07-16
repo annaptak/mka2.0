@@ -11,9 +11,6 @@ define([],function(){
 		template: _.template($('#detail').html()),
 		
 		initialize: function(){
-			console.log('Detail View Init');
-			currentArticleId = 0;
-			console.log(currentArticleId);
             $('#loader').remove();
 			this.render();
 		},
@@ -35,36 +32,11 @@ define([],function(){
 		},
 		
 		previousArticle: function() {
-			console.log("Going to previous article");
-			currentArticleId -= 1;
-			if (currentArticleId == 0 ) {
-				window.location.href = "#";
-			}
-			else {
-				var that = this;
-				this.views = [];
-				var params = {};
-				queryOnet.getAllNews(params, function(err, result){
-					if(result){
-					console.log(currentArticleId);
-					console.log(result);
-						window.location.href = '#detail/' + result[currentArticleId].id ;
-					}
-				});
-			}					
+			console.log("Going to previous article");			
 		},
 		
 		nextArticle: function() {
-			console.log("Going to next article");
-			currentArticleId += 1;
-			var that = this;
-			this.views = [];
-			var params = {};
-			queryOnet.getAllNews(params, function(err, result){
-				if(result){
-					window.location.href = '#detail/' + result[currentArticleId].id ;
-				}
-			});				
+			console.log("Going to next article");			
 		},
 		
 		"localParams": function(){
